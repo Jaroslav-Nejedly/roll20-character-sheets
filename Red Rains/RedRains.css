@@ -1,0 +1,328 @@
+@import url('https://fonts.googleapis.com/css?family=Kings&display=swap');
+
+/* Main body design */
+.charsheet main{
+    display: grid;
+    grid-template-rows: 130px 30px 1fr 1fr;
+    grid-template-columns: 300px 1fr;
+    min-width: 750px;
+    height: 1080px;
+    max-width: 1000px;
+    border: 1px solid red;
+    border-radius: 20px;
+}
+
+.charsheet .character-header{
+    grid-row: 1 / 2;
+    grid-column: 2 / 4;
+    border: 1px solid purple;
+}
+/*
+ * TAB NAVIGATION BAR SECTION
+ */
+    /* Grid settings */
+    .charsheet .tab-bar{
+        grid-row: 2 / 3;
+        grid-column: 2 / 3;
+    }
+
+    /* Tab button design */
+    .charsheet .tab-button {
+        display: inline-block;
+        width: 70px; 
+        height: 30px; 
+        text-align: center;
+        border: gray;
+        background-color: #E8562A;
+        color: #fff;
+        cursor: pointer;
+        font-weight: bold;
+        margin: -2px;
+        Padding: 0;
+    }
+
+    .charsheet .title{
+        grid-row: 1 / 1;
+        grid-column: 1 / 1;
+        border: 1px solid black;
+    }
+
+    .charsheet .title h1{
+        font-family: Kings;
+        font-size: 60px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .charsheet main > div{
+        border: 1px solid black;
+    }
+
+    /*Configure all sheets*/
+    .charsheet .sheet-skills,
+    .charsheet .sheet-magic,
+    .charsheet .sheet-combat,
+    .charsheet .sheet-inventory,
+    .charsheet .sheet-notes {
+        display: none;
+        grid-row: 3 / 6;
+        grid-column: 2 / 3;
+        border: 1px solid black;
+        padding: 10px
+    }
+    /* show the selected tab */
+    .charsheet .sheet-tabstoggle[value="skills"] ~ div.sheet-skills,
+    .charsheet .sheet-tabstoggle[value="magic"] ~ div.sheet-magic,
+    .charsheet .sheet-tabstoggle[value="combat"] ~ div.sheet-combat,
+    .charsheet .sheet-tabstoggle[value="inventory"] ~ div.sheet-inventory,
+    .charsheet .sheet-tabstoggle[value="notes"] ~ div.sheet-notes{
+        display: block;
+    }
+
+/*
+ * TAB NAVIGATION BAR SECTION END
+ */
+
+/*
+ * SKILLS TAB SECTION
+ */
+
+    .charsheet .skills-grid{
+        display: grid;
+        grid-auto-rows: 30px;
+        grid-template-columns: 40px 100px 70px 90px 1fr;
+        vertical-align: middle;
+    }
+
+    .charsheet .skills-grid-header{
+        grid-column: 1 / 6;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .charsheet .skills-grid>*{
+        margin-bottom: 2px;
+    }
+
+    .charsheet .skills-grid h4{
+        margin: 5px;
+    }
+
+    .charsheet .skills-grid-input{
+        width: 100%;
+    }
+
+    .skill-roll-button{
+        text-align: center;
+        vertical-align: middle;
+        margin-right: 5px;
+    }
+
+/*
+ * SKILLS TAB SECTION END
+ */
+
+ /*
+  * MAGIC TAB SECTION
+  */
+
+    .charsheet .magic-grid{
+        display: grid;
+        grid-auto-rows: 30px;
+        grid-template-columns: 80px auto 80px auto;
+        vertical-align: middle;
+    }
+
+/*
+ * MAGIC TAB SECTION END
+ */
+
+ /*
+  * TOP BAR / CHARACTER INFO 
+  */  
+    .charsheet .character-info{
+        display: grid;
+        grid-template-rows: 40px 40px 40px;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Overview item subgrid settings */
+    .charsheet .character-info-item{
+        display: grid;
+        grid-template-rows: 35px;
+        grid-template-columns: auto 1fr;
+        padding: 10px;
+    }
+
+    /* Overview item subgrid settings */
+    .charsheet .character-info-item input{
+        width: 100%;
+        height: 30px;
+    }
+
+    .charsheet .character-info-item h4{
+        margin: 5px;
+        vertical-align: middle;
+    }
+
+    .charsheet .character-info input[name="attr_enl"],
+    .charsheet .character-info input[name="attr_wealth"]{
+        -webkit-appearance: none;
+        -moz-appearance: textfield;
+    }
+/*
+ * TOP BAR / CHARACTER INFO END
+ */  
+
+/*
+ * LEFT SIDEBAR SECTION
+ */  
+    /* Main grid settings */
+    .charsheet .sidebar{
+        grid-row: 2 / 5;
+        grid-column: 1;
+        border: 1px solid gold; 
+        display:grid;
+        /*overflow-y: auto;
+        overflow-x: hidden;*/
+    }
+
+    /* Overview subgrid settings */
+    .charsheet .character-overview{
+        display: grid;
+        grid-auto-rows: 35px;
+        grid-template-columns: 1fr 1fr;
+        border: 1px solid greenyellow;
+    }
+
+    /* Overview item subgrid settings */
+    .charsheet .character-overview-item{
+        display: grid;
+        grid-template-rows: 35px;
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .charsheet .character-overview h4{
+        margin: 5px;
+        vertical-align: middle;
+    }
+
+    /* Input settings */
+    .charsheet .character-overview input{
+        height: 30px;
+        width: 90%;
+    }
+
+    /* Character name input settings */
+    .charsheet .character-name{
+        grid-column: 2 / 5;
+        width: 100px;
+    }
+
+    .charsheet .character-abilities{
+        grid-row: 1;
+    }
+
+    /* Languages repeating section row*/
+    .charsheet .language{
+        display: grid;
+        grid-template-columns: 3fr 35px 35px;
+        margin: 5px;
+        text-align: center;
+    }
+
+    /* container for the repeating abilities sectioin */
+    .charsheet .abilities-container{
+        overflow-y: auto;
+        overflow-x: hidden;
+        grid-row: 4;
+    }
+
+    /* abilities repeating section row*/
+    .charsheet .ability{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        padding: 5px;
+        margin: 0;
+    }
+
+    /* abilities repeating section input*/
+    .charsheet .ability input{
+        width: 100%;
+    }
+
+    /* abilities repeating section input*/
+    .charsheet .ability .ability_desc{
+        grid-row: 2;
+        display: none;
+    }
+
+    /* Show ability description on hover*/
+    .charsheet .ability:hover > .ability_desc{
+        display: grid;
+    }
+
+    /* Alters the appearance of the title of the ability details*/
+    .repcontainer[data-groupname="repeating_abilities"] summary {
+        outline: none;
+        display: block;
+        padding-top: 5px;
+        padding-left: 2.3rem;
+        position: relative;
+        cursor: pointer;
+    }
+
+    /* Alters the appearance of the ability details*/
+    .repcontainer[data-groupname="repeating_abilities"] details {
+        box-sizing: border-box;
+        display:grid;
+        margin-right: 10px;
+    }
+
+    .repcontainer[data-groupname="repeating_abilities"] details summary::-webkit-details-marker {
+        display:none;
+    }
+
+    /* Animate the arrow before the ability details summary (rotate when opened)*/
+    .repcontainer[data-groupname="repeating_abilities"] details[open] > summary:before {
+        transform: rotate(90deg);
+    }
+
+    /* If details are opened display this text*/
+    .repcontainer[data-groupname="repeating_abilities"] details[open] > summary:after {
+        content: 'Hide desctiption';
+    }
+
+    /* If details are closed display this text*/
+    .repcontainer[data-groupname="repeating_abilities"] details > summary:after {
+        content: 'Show description';
+    }
+
+    /* Animate the arrow before the ability details summary */
+    .repcontainer[data-groupname="repeating_abilities"] summary:before {
+        content: '';
+        border-width: .4rem;
+        border-style: solid;
+        border-color: transparent transparent transparent black;
+        position: absolute;
+        left: 1rem;
+        transform: rotate(0);
+        transform-origin: .2rem 50%;
+        transition: 0.20s transform ease;
+        margin-top: 5px;
+    }
+    
+    /* Style of each individual row of ability*/
+    .repcontainer[data-groupname="repeating_abilities"] .repitem {
+        border: 1px solid black;
+        margin: -1px 0px;
+        border-radius: 5px;
+    }
+
+/*
+ * LEFT SIDEBAR SECTION END
+ */
+
