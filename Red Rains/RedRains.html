@@ -3,23 +3,38 @@
     <div class="character-info">
         <div class="character-info-item">
             <h4>Name:</h4> 
-            <input type="text" name="attr_character-name" value=""></input>
+            <input type="text" name="attr_character-name" value=""/>
         </div>
         <div class="character-info-item">
             <h4>Faith:</h4> 
-            <input type="text" name="attr_character-faith" value=""></input>
+            <input type="text" name="attr_character-faith" value=""/>
         </div>
         <div class="character-info-item">
             <h4>Species:</h4> 
-            <input type="text" name="attr_species" value=""></input>
+            <input type="text" name="attr_species" value=""/>
         </div>
         <div class="character-info-item">
             <h4>Race:</h4> 
-            <input type="text" name="attr_race" value=""></input>
+            <input type="text" name="attr_race" value=""/>
         </div>
-        <div class="character-info-item">
+        <div class="character-info-item" id="wealth">
             <h4>Wealth:&nbsp;&nbsp;</h4> <!--I am sorry-->
-            <input type="number" name="attr_wealth" value="1"></input>
+            <!--input type="number" name="attr_wealth" value="1"></input-->
+            <select name="attr_wealth">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+              <input type="number" name="attr_wealth_desctiption" value="Poor"/>
+              <span class="readonly" name="attr_wealth_desctiption"></span>
         </div>
         <div class="character-info-item character-info-enl">
             <h4>Enlightenment:</h4> 
@@ -86,7 +101,7 @@
         </div>
     </div>
 
-    <div class="sheet-skills">
+    <div class="sheet-page sheet-skills">
         <div class="skills-grid">
             <div class="skills-grid-header"><h3>Social</h3></div>
 
@@ -254,22 +269,248 @@
 
         </div>
     </div>
-    <div class="sheet-magic">
+    <div class="sheet-page sheet-magic">
         <h2>Magic</h2>
-        <span>Magic goes here</span> 
+        <div class="magic-cast">
+            <h4 title="Total number of sphere levels used">Total sphere levels used:</h4>
+            <input class="magic-cast-input" type="number" name="attr_cast-sphere-count" value="0"></input>
+            <button type="action" name="act_cast-spell">Cast!</button>
+        </div>
+        <div class="magic-grid">
+            <div class="magic-grid-section-header">
+                <h3>Elemental</h3>
+            </div>
+            <div class="magic-grid-section" id="elemental">
+                <div class="magic-grid-item">
+                    <button type="action" name="act_fire-sphere-info" title="Sphere information">i</button>
+                    <input type="text" name="attr_fire-sphere-image">
+                    <img name="attr_fire-sphere-image">
+                    <h4>Fire</h4>
+                    <input class="magic-grid-input" type="number" name="attr_fire-sphere" value="0"></input>
+                </div>
+                <div class="magic-grid-item">
+                    <button type="action" name="act_earth-sphere-info" title="Sphere information">i</button>
+                    <input type="text" name="attr_earth-sphere-image">
+                    <img name="attr_earth-sphere-image">
+                    <h4>Earth</h4>
+                    <input class="magic-grid-input" type="number" name="attr_earth-sphere" value="0"></input>
+                </div>
+                <div class="magic-grid-item">
+                    <button type="action" name="act_air-sphere-info" title="Sphere information">i</button>
+                    <input type="text" name="attr_air-sphere-image">
+                    <img name="attr_air-sphere-image">
+                    <h4>Air</h4>
+                    <input class="magic-grid-input" type="number" name="attr_air-sphere" value="0"></input>
+                </div>
+                <div class="magic-grid-item">
+                    <button type="action" name="act_water-sphere-info" title="Sphere information">i</button>
+                    <input type="text" name="attr_water-sphere-image">
+                    <img name="attr_water-sphere-image">
+                    <h4>Water</h4>
+                    <input class="magic-grid-input" type="number" name="attr_water-sphere" value="0"></input>
+                </div>
+                <div class="magic-grid-item">
+                    <button type="action" name="act_darkness-sphere-info" title="Sphere information">i</button>
+                    <input type="text" name="attr_darkness-sphere-image">
+                    <img name="attr_darkness-sphere-image">
+                    <h4>Darkness</h4>
+                    <input class="magic-grid-input" type="number" name="attr_darkness-sphere" value="0"></input>
+                </div>
+                <div class="magic-grid-item">
+                    <button type="action" name="act_light-sphere-info" title="Sphere information">i</button>
+                    <input type="text" name="attr_light-sphere-image">
+                    <img name="attr_light-sphere-image">
+                    <h4>Light</h4>
+                    <input class="magic-grid-input" type="number" name="attr_light-sphere" value="0"></input>
+                </div>
+                <div class="magic-grid-item">
+                    <button type="action" name="act_force-sphere-info" title="Sphere information">i</button>
+                    <input type="text" name="attr_force-sphere-image">
+                    <img name="attr_force-sphere-image">
+                    <h4>Force</h4>
+                    <input class="magic-grid-input" type="number" name="attr_force-sphere" value="0"></input>
+                </div>
+                <div class="magic-grid-item">
+                    <button type="action" name="act_cold-sphere-info" title="Sphere information">i</button>
+                    <input type="text" name="attr_cold-sphere-image">
+                    <img name="attr_cold-sphere-image">
+                    <h4>Cold</h4>
+                    <input class="magic-grid-input" type="number" name="attr_cold-sphere" value="0"></input>
+                </div>
+            </div>
+            <div class="magic-grid-section-header">
+                <h3>Flesh</h3>
+            </div>
+            <div class="magic-grid-section" id="flesh">
+                <div class="magic-grid-item">
+                    <button type="action" name="act_healing-sphere-info" title="Sphere information">i</button>
+                    <input type="text" name="attr_healing-sphere-image">
+                    <img name="attr_healing-sphere-image">
+                    <h4>Healing</h4>
+                    <input class="magic-grid-input" type="number" name="attr_healing-sphere" value="0"></input>
+                </div>
+                <div class="magic-grid-item">
+                    <button type="action" name="act_decay-sphere-info" title="Sphere information">i</button>
+                    <input type="text" name="attr_decay-sphere-image">
+                    <img name="attr_decay-sphere-image">
+                    <h4>Decay</h4>
+                    <input class="magic-grid-input" type="number" name="attr_decay-sphere" value="0"></input>
+                </div>
+                <div class="magic-grid-item">
+                    <button type="action" name="act_metamorphosis-sphere-info" title="Sphere information">i</button>
+                    <input type="text" name="attr_metamorphosis-sphere-image">
+                    <img name="attr_metamorphosis-sphere-image">
+                    <h4>Metamorphosis</h4>
+                    <input class="magic-grid-input" type="number" name="attr_metamorphosis-sphere" value="0"></input>
+                </div>
+                <div class="magic-grid-item">
+                    <button type="action" name="act_flora-sphere-info" title="Sphere information">i</button>
+                    <input type="text" name="attr_flora-sphere-image">
+                    <img name="attr_flora-sphere-image">
+                    <h4>Flora</h4>
+                    <input class="magic-grid-input" type="number" name="attr_flora-sphere" value="0"></input>
+                </div>
+            </div>
+            <div class="magic-grid-section-header">
+                <h3>Esoteric</h3>
+            </div>
+            <div class="magic-grid-section" id="esoteric">
+                <div class="magic-grid-item">
+                    <button type="action" name="act_duration-sphere-info" title="Sphere information">i</button>
+                    <input type="text" name="attr_duration-sphere-image">
+                    <img name="attr_duration-sphere-image">
+                    <h4>Duration</h4>
+                    <input class="magic-grid-input" type="number" name="attr_duration-sphere" value="0"></input>
+                </div>
+                <div class="magic-grid-item">
+                    <button type="action" name="act_expansion-sphere-info" title="Sphere information">i</button>
+                    <input type="text" name="attr_expansion-sphere-image">
+                    <img name="attr_expansion-sphere-image">
+                    <h4>Expansion</h4>
+                    <input class="magic-grid-input" type="number" name="attr_expansion-sphere" value="0"></input>
+                </div>
+                <div class="magic-grid-item">
+                    <button type="action" name="act_projection-sphere-info" title="Sphere information">i</button>
+                    <input type="text" name="attr_projection-sphere-image">
+                    <img name="attr_projection-sphere-image">
+                    <h4>Projection</h4>
+                    <input class="magic-grid-input" type="number" name="attr_projection-sphere" value="0"></input>
+                </div>
+                <div class="magic-grid-item">
+                    <button type="action" name="act_mind-sphere-info" title="Sphere information">i</button>
+                    <input type="text" name="attr_mind-sphere-image">
+                    <img name="attr_mind-sphere-image">
+                    <h4>Mind</h4>
+                    <input class="magic-grid-input" type="number" name="attr_mind-sphere" value="0"></input>
+                </div>
+                <div class="magic-grid-item">
+                    <button type="action" name="act_summoning-sphere-info" title="Sphere information">i</button>
+                    <input type="text" name="attr_summoning-sphere-image">
+                    <img name="attr_summoning-sphere-image">
+                    <h4>Summoning</h4>
+                    <input class="magic-grid-input" type="number" name="attr_summoning-sphere" value="0"></input>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="sheet-combat">
+    <div class="sheet-page sheet-combat">
         <h2>Combat</h2>
         <span>All weapons, rotes and other combat buttons go here</span> 
     </div>
-    <div class="sheet-inventory">
+    <div class="sheet-page sheet-inventory">
         <h2>Inventory</h2>
         <span>All of the furniture you managed to steal</span> 
     </div>
-    <div class="sheet-notes">
+    <div class="sheet-page sheet-notes">
         <h2>Notes</h2>
         <span>Various notes, descriptions, scars and more</span> 
     </div>
+
+    <div class="sheet-page sheet-fire-sphere-info">
+        <button type="action" name="act_magic-back"><img src="https://i.imgur.com/BfXz7nW.png"></button>
+        <h2>Fire sphere</h2>
+    </div>
+
+    <div class="sheet-page sheet-earth-sphere-info">
+        <button type="action" name="act_magic-back"><img src="https://i.imgur.com/BfXz7nW.png"></button>
+        <h2>Earth sphere</h2>
+    </div>
+
+    <div class="sheet-page sheet-air-sphere-info">
+        <button type="action" name="act_magic-back"><img src="https://i.imgur.com/BfXz7nW.png"></button>
+        <h2>Air sphere</h2>
+    </div>
+
+    <div class="sheet-page sheet-water-sphere-info">
+        <button type="action" name="act_magic-back"><img src="https://i.imgur.com/BfXz7nW.png"></button>
+        <h2>Water sphere</h2>
+    </div>
+
+    <div class="sheet-page sheet-darkness-sphere-info">
+        <button type="action" name="act_magic-back"><img src="https://i.imgur.com/BfXz7nW.png"></button>
+        <h2>Darkness sphere</h2>
+    </div>
+
+    <div class="sheet-page sheet-light-sphere-info">
+        <button type="action" name="act_magic-back"><img src="https://i.imgur.com/BfXz7nW.png"></button>
+        <h2>Light sphere</h2>
+    </div>
+
+    <div class="sheet-page sheet-force-sphere-info">
+        <button type="action" name="act_magic-back"><img src="https://i.imgur.com/BfXz7nW.png"></button>
+        <h2>Force sphere</h2>
+    </div>
+
+    <div class="sheet-page sheet-cold-sphere-info">
+        <button type="action" name="act_magic-back"><img src="https://i.imgur.com/BfXz7nW.png"></button>
+        <h2>Cold sphere</h2>
+    </div>
+
+    <div class="sheet-page sheet-healing-sphere-info">
+        <button type="action" name="act_magic-back"><img src="https://i.imgur.com/BfXz7nW.png"></button>
+        <h2>Healing sphere</h2>
+    </div>
+
+    <div class="sheet-page sheet-decay-sphere-info">
+        <button type="action" name="act_magic-back"><img src="https://i.imgur.com/BfXz7nW.png"></button>
+        <h2>Decay sphere</h2>
+    </div>
+
+    <div class="sheet-page sheet-metamorphosis-sphere-info">
+        <button type="action" name="act_magic-back"><img src="https://i.imgur.com/BfXz7nW.png"></button>
+        <h2>Metamorphosis sphere</h2>
+    </div>
+
+    <div class="sheet-page sheet-flora-sphere-info">
+        <button type="action" name="act_magic-back"><img src="https://i.imgur.com/BfXz7nW.png"></button>
+        <h2>Flora sphere</h2>
+    </div>
+
+    <div class="sheet-page sheet-duration-sphere-info">
+        <button type="action" name="act_magic-back"><img src="https://i.imgur.com/BfXz7nW.png"></button>
+        <h2>Duration sphere</h2>
+    </div>
+
+    <div class="sheet-page sheet-expansion-sphere-info">
+        <button type="action" name="act_magic-back"><img src="https://i.imgur.com/BfXz7nW.png"></button>
+        <h2>Expansion sphere</h2>
+    </div>
+
+    <div class="sheet-page sheet-projection-sphere-info">
+        <button type="action" name="act_magic-back"><img src="https://i.imgur.com/BfXz7nW.png"></button>
+        <h2>Projection sphere</h2>
+    </div>
+
+    <div class="sheet-page sheet-mind-sphere-info">
+        <button type="action" name="act_magic-back"><img src="https://i.imgur.com/BfXz7nW.png"></button>
+        <h2>Mind sphere</h2>
+    </div>
+
+    <div class="sheet-page sheet-summoning-sphere-info">
+        <button type="action" name="act_magic-back"><img src="https://i.imgur.com/BfXz7nW.png"></button>
+        <h2>Summoning sphere</h2>
+    </div>
+
 
 </main>
 
@@ -280,30 +521,93 @@
     </div>
 </rolltemplate>
 
-<script>
-    $('.expandButton').click(function() {
-        console.log("Expand clicked")
-        $(this).parent().find('.ability_desc').slideToggle(function() {
-            $('.isotope').isotope("layout");
-        });
-        $(this).addClass('open');
-    });
-</script>
+<rolltemplate class="sheet-rolltemplate-redrains-magic">
+    <p><b>{{sphereCount}}</b> magic spheres were invoked.</p>
+    <div class="sheet-results">
+        <h4>Spellweave: {{computed::spellweave}}</h4>
+        <h4>Aura: {{computed::aura}}</h4>
+    </div>
+    {{#rollLess() computed::spellweave computed::rollTarget}}
+        <p>The spell failed</p>
+    {{/rollLess() computed::spellweave computed::rollTarget}}
+    {{#rollGreater() computed::spellweave computed::rollTarget}}
+        <p>The spell was a success!</p>
+        <p>The spell strained the caster by <b>{{computed::casterStrain}}</b></p>
+    {{/rollGreater() computed::spellweave computed::rollTarget}}
+</rolltemplate>
 
 <script type="text/worker">
-
-    /*on("clicked:repeating_abilities:expand", function() {
-        console.log(this.parent);
-        getSectionIDs("abilities", function(idarray) {
-            console.log(idarray);
-        });
-    });*/
     
-    const tabButtonList = ["skills","magic","combat","inventory","notes"];
+    // Tab control - save current tab in variable so the tab where user was is saved
+    const tabButtonList = ["skills","magic","combat","inventory","notes", 
+    "fire-sphere-info", "earth-sphere-info", "air-sphere-info","water-sphere-info",
+    "darkness-sphere-info", "light-sphere-info", "force-sphere-info", "cold-sphere-info", "flora-sphere-info",
+    "healing-sphere-info", "decay-sphere-info", "metamorphosis-sphere-info", "duration-sphere-info",
+    "expansion-sphere-info", "projection-sphere-info", "mind-sphere-info", "summoning-sphere-info"];
     tabButtonList.forEach(button => {
         on(`clicked:${button}`, function() {
             setAttrs({
                 sheetTab: button
+            });
+        });
+    });
+
+    // Button featured in every sphere info tab, brings user back to magic tab
+    on('clicked:magic-back', function(){
+        setAttrs({
+            sheetTab: "magic"
+        });
+    });
+
+    // List of all of the possible magic spheres
+    const magicSphereList = [
+        "fire", "earth", "air", "water", "darkness", "light", "force", "cold", // Elemental
+        "healing", "metamorphosis", "flora", "decay",                          // Flesh
+        "mind", "summoning"  ,                                                 // Weird
+        "duration", "expansion", "projection"                                  // Meta
+    ];
+
+    // Links to Magic Sphere images by magic potency
+    const magicSphereImageList = {
+        0:  "https://i.imgur.com/MwSmZ5e.png",
+        1:  "https://i.imgur.com/tWzpZFK.png",
+        2:  "https://i.imgur.com/nzsqcoN.png",
+        3:  "https://i.imgur.com/KXbk6v4.png",
+        4:  "https://i.imgur.com/mQ4CfeJ.png",
+        5:  "https://i.imgur.com/o4XMv8X.png",
+        6:  "https://i.imgur.com/U8WnMjC.png",
+        7:  "https://i.imgur.com/tLSrMk5.png",
+        8:  "https://i.imgur.com/4vhY2cp.png",
+        9:  "https://i.imgur.com/B7cweiA.png",
+        10: "https://i.imgur.com/2BwJ5MM.png"
+    };
+
+    // Set magic sphere images if variables are empty
+    on('sheet:opened', function(){
+        magicSphereList.forEach(magic =>{
+            getAttrs([`${magic}-sphere-image`], function(values) {
+                if(values[`${magic}-sphere-image`].length == 0){
+                    setAttrs({[`${magic}-sphere-image`]: magicSphereImageList[0]});
+                }
+            });
+        });
+    });
+
+    magicSphereList.forEach(magic => {
+        on(`change:${magic}-sphere`, (info) => {
+            const sphereName = info.triggerName.toString(); //Get name of the variable
+            getAttrs([sphereName], function(values){
+                var sphereLevel = parseInt(values[sphereName])||0;
+                // If the magic value exceeds the imagel ist length, just use the last image
+                if(sphereLevel > Object.keys(magicSphereImageList).length-1){
+                    sphereLevel = Object.keys(magicSphereImageList).length-1;
+                }
+                // Can't have a negative value sphere level. Set it to 0 instead
+                if(sphereLevel < 0){
+                    sphereLevel = 0;
+                    setAttrs({[sphereName]: sphereLevel});
+                }
+                setAttrs({[`${sphereName}-image`]: magicSphereImageList[sphereLevel]});
             });
         });
     });
@@ -320,7 +624,7 @@
     skillList.forEach(skill => {
         on(`clicked:${skill}`, (info) => {
             const skillName = info.triggerName.substring('clicked:'.length);
-            rollSkill(skillName)
+            rollSkill(skillName);
         });
     })
 
@@ -350,10 +654,13 @@
      * Rolls any skill with the supplied skill name - checks for focuses and adds those accordingly.
      */
     function rollSkill(skillName){
-        //Base roll macro for every skills (Capitalize 1st letter of name param for display purposes)
+        // Base roll macro for every skills (Capitalize 1st letter of name param for display purposes)
         const rollFormula = "&{template:redrains} {{name="+skillName.charAt(0).toUpperCase() + skillName.slice(1)+"}} {{roll1=[[(@{"+skillName+"-grade}-@{strain})d6>4]]}}"
         getAttrs([skillName+"-focuses", skillName+"-grade", "strain"], function(values) {
             const focus = values[skillName+"-focuses"].toString();
+
+            //TODO: When wearing armor reduce agility, stealth and swimming endurance
+
             if(focus == ""){
                 //If there are no focuses there is no need to promt the user - just roll the basic formula
                 startRoll(rollFormula, (results) =>{
@@ -364,10 +671,10 @@
             } else {
                 const grade = parseInt(values[skillName+"-grade"])
                 const strain = parseInt(values["strain"]);
-                //If there is a focus we need to ask the user if the focus applies and how many times it applies (up to 2)
-                startRoll(rollFormula.replace("d6>4","d6>4 +?{Does your focus apply?|No, 0|Yes - once, 1|Yes - twice, 2}"), (results) => {
+                // If there is a focus we need to ask the user if the focus applies and how many times it applies (up to 2)
+                startRoll(rollFormula.replace("d6>4","d6>4 +?{Does your focus \""+focus+"\" apply?|No, 0|Yes - once, 1|Yes - twice, 2}"), (results) => {
                     var sucesses = results.results.roll1.result
-                    //If user has more sucesses than his maximum dice pool allows, then the number of sucessed becomes equal to dice pool
+                    // If user has more sucesses than his maximum dice pool allows, then the number of sucessed becomes equal to dice pool
                     const dicePool = grade - strain
                     if (sucesses > dicePool){
                         sucesses = dicePool;
@@ -381,5 +688,119 @@
             }
         })
     } 
+
+    /* Wealth descriptors dictionary*/
+    const wealthDescription = {
+        0:  "Destitute",
+        1:  "Poverty",
+        2:  "Poor",
+        3:  "Sufficient",
+        4:  "Established",
+        5:  "Successful",
+        6:  "Wealthy",
+        7:  "Rich",
+        8:  "Lordly",
+        9:  "Kingly",
+        10: "Exorbitant"
+    };
+    // Limit wealth from 0 to [dictionary length] and set descriptor
+    on("change:wealth", (info) => {
+        getAttrs(["wealth"], function(values) {
+            const wealth = parseInt(values["wealth"]);
+            // Wealth cannot be lower than 0
+            if(wealth < 0){
+                wealth = 0;
+                setAttrs({"wealth": wealth});
+            }
+            // Set max wealth according ot the wealth desctiption list
+            if(wealth > Object.keys(wealthDescription).length-1){
+                wealth = Object.keys(wealthDescription).length-1;
+                setAttrs({"wealth": wealth});
+            }
+            // Set wealth description
+            setAttrs({"wealth_desctiption": wealthDescription[wealth]});
+        });
+    });
+
+    on("clicked:cast-spell", (info) => {
+        console.log("Magic pew pew");
+        getAttrs(["cast-sphere-count"], function(values) {
+            rollSpell(values["cast-sphere-count"]);
+        });
+        /*
+        setAttrs({"cast-sphere-count" : 0});
+        */
+    })
+
+    function rollSpell(sphereLevelCount){
+        var castDifficulty = Math.floor(sphereLevelCount / 2);
+
+        getAttrs(["spellweave-grade", "spellweave-focuses", "aura-grade", "aura-focuses", "strain"], function(values) {
+            var spellweave = parseInt(values["spellweave-grade"]); 
+            var spellweaveFocus = values["spellweave-focuses"]; 
+            var aura = parseInt(values["aura-grade"]);
+            var auraFocus = values["aura-focuses"];
+            var strain = parseInt(values["strain"]);
+
+            let rollFormula = `&{template:redrains-magic} {{sphereCount=${sphereLevelCount}}} {{spellweave=[[(${spellweave}-${strain})d6>4 @FocusSpellweave ]]}} {{aura=[[(${aura}-${strain})d6>4 @FocusAura]]}} {{rollTarget=[[0d0]]}} {{casterStrain=[[0d0]]}}`;
+
+            // Add focuses if user has them
+            if(spellweaveFocus.length != 0){
+                rollFormula = rollFormula.replace("@FocusSpellweave","+?{Does your focus \""+spellweaveFocus+"\" apply?|No, 0|Yes - once, 1|Yes - twice, 2}")
+            } else {
+                rollFormula = rollFormula.replace("@FocusSpellweave","")
+            }
+
+            if(auraFocus.length != 0){
+                rollFormula = rollFormula.replace("@FocusAura","+?{Does your focus \""+auraFocus+"\" apply?|No, 0|Yes - once, 1|Yes - twice, 2}")
+            } else {
+                rollFormula = rollFormula.replace("@FocusAura","")
+            }
+
+            console.log("Roll Formula: " + rollFormula);
+
+            startRoll(rollFormula, (results) => {
+                var spellweaceSuccesses = results.results.spellweave.result;
+                var auraSuccesses = results.results.aura.result;
+
+                console.log("Spellweave result: " + spellweaceSuccesses);
+                console.log("Aura result: " + auraSuccesses);
+
+                // If user has more sucesses than his maximum dice pool allows, then the number of sucessed becomes equal to dice pool
+                const spellweaveDicePool = spellweave - strain;
+                if (spellweaceSuccesses > spellweaveDicePool){
+                    spellweaceSuccesses = spellweaveDicePool;
+                }
+                const auraDicePool = aura - strain;
+                if (auraSuccesses > auraDicePool){
+                    auraSuccesses = auraDicePool;
+                }
+
+                console.log("Normalized Spellweave result: " + spellweaceSuccesses);
+                console.log("Normalized Aura result: " + auraSuccesses);
+                
+                let strainTaken = 0;
+
+                if(castDifficulty > auraSuccesses){
+                    strainTaken = castDifficulty - auraSuccesses
+                }
+
+                strain += strainTaken;
+                setAttrs({"strain" : strain});
+
+                finishRoll(
+                    results.rollId, {
+                        spellweave: spellweaceSuccesses,
+                        aura: auraSuccesses,
+                        casterStrain: strainTaken,
+                        rollTarget: castDifficulty
+                    }
+                );
+
+            })
+        })
+        
+    }
+
 
 </script>

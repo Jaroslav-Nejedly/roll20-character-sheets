@@ -5,7 +5,7 @@
     display: grid;
     grid-template-rows: 130px 30px 1fr 1fr;
     grid-template-columns: 300px 1fr;
-    min-width: 750px;
+    min-width: 800px;
     height: 1080px;
     max-width: 1000px;
     border: 1px solid red;
@@ -35,7 +35,6 @@
         border: gray;
         background-color: #E8562A;
         color: #fff;
-        cursor: pointer;
         font-weight: bold;
         margin: -2px;
         Padding: 0;
@@ -61,24 +60,47 @@
     }
 
     /*Configure all sheets*/
-    .charsheet .sheet-skills,
-    .charsheet .sheet-magic,
-    .charsheet .sheet-combat,
-    .charsheet .sheet-inventory,
-    .charsheet .sheet-notes {
+    .charsheet .sheet-page {
         display: none;
         grid-row: 3 / 6;
         grid-column: 2 / 3;
         border: 1px solid black;
         padding: 10px
     }
+
     /* show the selected tab */
     .charsheet .sheet-tabstoggle[value="skills"] ~ div.sheet-skills,
     .charsheet .sheet-tabstoggle[value="magic"] ~ div.sheet-magic,
     .charsheet .sheet-tabstoggle[value="combat"] ~ div.sheet-combat,
     .charsheet .sheet-tabstoggle[value="inventory"] ~ div.sheet-inventory,
-    .charsheet .sheet-tabstoggle[value="notes"] ~ div.sheet-notes{
+    .charsheet .sheet-tabstoggle[value="notes"] ~ div.sheet-notes,
+    .charsheet .sheet-tabstoggle[value="fire-sphere-info"] ~ div.sheet-fire-sphere-info,
+    .charsheet .sheet-tabstoggle[value="earth-sphere-info"] ~ div.sheet-earth-sphere-info,
+    .charsheet .sheet-tabstoggle[value="air-sphere-info"] ~ div.sheet-air-sphere-info,
+    .charsheet .sheet-tabstoggle[value="water-sphere-info"] ~ div.sheet-water-sphere-info,
+    .charsheet .sheet-tabstoggle[value="darkness-sphere-info"] ~ div.sheet-darkness-sphere-info,
+    .charsheet .sheet-tabstoggle[value="light-sphere-info"] ~ div.sheet-light-sphere-info,
+    .charsheet .sheet-tabstoggle[value="force-sphere-info"] ~ div.sheet-force-sphere-info,
+    .charsheet .sheet-tabstoggle[value="cold-sphere-info"] ~ div.sheet-cold-sphere-info,
+    .charsheet .sheet-tabstoggle[value="healing-sphere-info"] ~ div.sheet-healing-sphere-info,
+    .charsheet .sheet-tabstoggle[value="decay-sphere-info"] ~ div.sheet-decay-sphere-info,
+    .charsheet .sheet-tabstoggle[value="metamorphosis-sphere-info"] ~ div.sheet-metamorphosis-sphere-info,
+    .charsheet .sheet-tabstoggle[value="flora-sphere-info"] ~ div.sheet-flora-sphere-info,
+    .charsheet .sheet-tabstoggle[value="duration-sphere-info"] ~ div.sheet-duration-sphere-info,
+    .charsheet .sheet-tabstoggle[value="expansion-sphere-info"] ~ div.sheet-expansion-sphere-info,
+    .charsheet .sheet-tabstoggle[value="projection-sphere-info"] ~ div.sheet-projection-sphere-info,
+    .charsheet .sheet-tabstoggle[value="mind-sphere-info"] ~ div.sheet-mind-sphere-info,
+    .charsheet .sheet-tabstoggle[value="summoning-sphere-info"] ~ div.sheet-summoning-sphere-info
+    {
         display: block;
+    }
+
+    .charsheet .sheet-tabstoggle[value="skills"] ~ button.sheet-skills,
+    .charsheet .sheet-tabstoggle[value="magic"] ~ div.sheet-magic,
+    .charsheet .sheet-tabstoggle[value="combat"] ~ div.sheet-combat,
+    .charsheet .sheet-tabstoggle[value="inventory"] ~ div.sheet-inventory,
+    .charsheet .sheet-tabstoggle[value="notes"] ~ div.sheet-notes{
+
     }
 
 /*
@@ -130,9 +152,96 @@
 
     .charsheet .magic-grid{
         display: grid;
-        grid-auto-rows: 30px;
-        grid-template-columns: 80px auto 80px auto;
         vertical-align: middle;
+    }
+
+    /* Section for each class of magic */
+    .charsheet .magic-grid-section{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        border: 1px solid black;
+    }
+
+    /* Esoteric section has 5 spheres instead of 4 / 8 */
+    .charsheet .magic-grid-section[id="esoteric"]{
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+
+    /* Header container for each magic section */
+    .charsheet .magic-grid-section-header{
+        display: grid;
+        text-align: center;
+        grid-columns: 1/5;
+        text-align: left;
+        border: 1px solid red;
+    }
+
+    /* Header text for each magic section */
+    .charsheet .magic-grid-section-header h3{
+        text-align: center;
+        color: red;
+    }
+
+    /* Each individual sphere container in the header section */
+    .charsheet .magic-grid-item{
+        display: grid;
+        text-align: center;
+        grid-template-columns: 1fr;
+        grid-template-rows: 15px 45px 35px 40px;
+        border: 1px solid black;
+        padding: 10px 0;
+    }
+
+    /* Each individual sphere container in the header section */
+    .charsheet .magic-grid-item button{
+        display: block;
+        height: 15px;
+        width: 15px;
+        margin: 0;
+        padding: 0;
+        margin-left: auto;
+        margin-top: -10px;
+    }
+
+    .charsheet .magic-grid-item h4{
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .charsheet .magic-grid-item input[type="text"]{
+        display: none;
+    }
+
+    .charsheet .magic-grid-item input[type="number"]{
+        margin: 0 auto;
+    }
+
+    .charsheet .magic-grid-item img{
+        width: 50px;
+        height: 50px;
+        margin: 0 auto;
+        margin-top: -15px;
+    }
+
+    /* Cast a spell wrapper */
+    .charsheet .magic-cast{
+        display: grid;
+        grid-template-columns: auto auto auto 1fr;
+        grid-template-rows: 1;
+        margin: 10px 0px;
+    }
+
+    /* Cast a spell title*/
+    .charsheet .magic-cast h4{
+        margin-right: 10px;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    /* Cast a spell input*/
+    .charsheet .magic-cast input{
+        margin-right: 10px;
+        width: 50px !important;
     }
 
 /*
@@ -156,6 +265,23 @@
         padding: 10px;
     }
 
+    /* Overview item subgrid settings for whealth (has one more column in it */
+    .charsheet .character-info-item[id="wealth"]{
+        grid-template-columns: auto auto 1fr;
+    }
+
+    /* Whealth description hidden input*/
+    .charsheet .character-info-item[id="wealth"] input{
+        display: none
+    }
+
+    /* Whealth description text*/
+    .charsheet .character-info-item[id="wealth"] span{
+        margin-top: 4px;
+        margin-left: 5px;
+    }
+    
+
     /* Overview item subgrid settings */
     .charsheet .character-info-item input{
         width: 100%;
@@ -168,10 +294,12 @@
     }
 
     .charsheet .character-info input[name="attr_enl"],
-    .charsheet .character-info input[name="attr_wealth"]{
+    .charsheet .character-info select[name="attr_wealth"]{
         -webkit-appearance: none;
         -moz-appearance: textfield;
+        width: 50px;
     }
+
 /*
  * TOP BAR / CHARACTER INFO END
  */  
@@ -185,8 +313,8 @@
         grid-column: 1;
         border: 1px solid gold; 
         display:grid;
-        /*overflow-y: auto;
-        overflow-x: hidden;*/
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto 1fr;
     }
 
     /* Overview subgrid settings */
@@ -238,6 +366,11 @@
         overflow-y: auto;
         overflow-x: hidden;
         grid-row: 4;
+        margin: 10px 0px;
+    }
+
+    .charsheet .abilities-container:first-child{
+        padding-top: 100px;
     }
 
     /* abilities repeating section row*/
@@ -318,11 +451,45 @@
     /* Style of each individual row of ability*/
     .repcontainer[data-groupname="repeating_abilities"] .repitem {
         border: 1px solid black;
-        margin: -1px 0px;
         border-radius: 5px;
     }
 
 /*
  * LEFT SIDEBAR SECTION END
+ */
+
+/*
+ * MAGIC INGO PAGE SECTION
+ */
+    .charsheet .sheet-page button[name="act_magic-back"]{
+        display: flex;
+        float: right;
+        width: 50px;
+        height: 50px;
+        border: none;
+        border-radius: 50px;
+        background: none;
+    }
+
+    .charsheet .sheet-page button[name="act_magic-back"] img{
+        width: 100%;
+        height: 100%;
+    }
+
+/*
+ * MAGIC INGO PAGE SECTION END
+ */
+
+ /* 
+  * ROLL TEMPLATES
+  */
+
+    .sheet-rolltemplate-redrains
+    .sheet-rolltemplate-redrains-magic{
+        border: 1px solid black;
+    }
+
+/* 
+ * ROLL TEMPLATES END
  */
 
