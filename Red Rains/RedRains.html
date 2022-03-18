@@ -1,4 +1,8 @@
 <main>
+    <input type="hidden" name="attr_show-rotes-clicked" value="0"></input>
+    <input type="hidden" name="attr_total-armor-pen" value="0"></input>
+    <input type="hidden" name="attr_true-agility-grade" value="0"></input>
+    <input type="hidden" name="attr_total-armor-defense" value="0"></input>
     <div class="title"><h1>Red Rains</h1></div>
     <div class="character-info">
         <div class="character-info-item">
@@ -36,19 +40,20 @@
               <input type="number" name="attr_wealth_desctiption" value="Poor"/>
               <span class="readonly" name="attr_wealth_desctiption"></span>
         </div>
-        <div class="character-info-item character-info-enl">
+        <div class="character-info-item character-info-enl" id="enl">
             <h4>Enlightenment:</h4> 
             <input type="number" name="attr_enl" value="30"></input>
+            <h3>/</h3>
+            <input type="number" name="attr_enl-max" value="30"></input>
         </div>
     </div>
-
     <input type="hidden" class="sheet-tabstoggle" name="attr_sheetTab"  value="skills"/>
     <div class = "tab-bar">
-        <button type="action" name="act_skills" class = "tab-button">Skills</button>
-        <button type="action" name="act_magic" class = "tab-button">Magic</button>
-        <button type="action" name="act_combat" class = "tab-button">Combat</button>
-        <button type="action" name="act_inventory" class = "tab-button">Inventory</button>
-        <button type="action" name="act_notes" class = "tab-button">Notes</button>
+        <button type="action" name="act_skills" class = "tab-button"><span>Skills</span></button>
+        <button type="action" name="act_magic" class = "tab-button"><span>Magic</span></button>
+        <button type="action" name="act_combat" class = "tab-button"><span>Combat</span></button>
+        <button type="action" name="act_inventory" class = "tab-button"><span>Inventory</span></button>
+        <button type="action" name="act_notes" class = "tab-button"><span>Notes</span></button>
     </div>
 
     <div class="sidebar">
@@ -58,22 +63,23 @@
                 <input type="number" name="attr_strain" value="0"/>
             </div>
             <div class="character-overview-item">
-                <h4>Wounded:</h4>
+                <h4>Wounded:&nbsp;&nbsp;&nbsp;</h4>
                 <input type="checkbox" name="attr_wounded"/>
             </div>
             <div class="character-overview-item">
                 <h4>Black&nbsp;mark:</h4>
-                <input type="checkbox" name="attr_blackmark"/>
+                <input type="checkbox" id="attr_blackmark" name="attr_blackmark"/>
             </div>
             <div class="character-overview-item">
                 <h4>Blood&nbsp;mark:</h4>
-                <input type="checkbox" name="attr_bloodmark"/>
+                <input type="checkbox" id="attr_bloodmark" name="attr_bloodmark"/>
             </div>
         </div>
-        <div>
-            <br><h3>Languages</h3>
+        <br>
+        <div class="languages-container">
+            <h3>Languages</h3>
             <div class="language">
-                <h4>Name</h4>
+                <h4 id="Language-Name-Header">Name</h4>
                 <h4 title="Spoken">S</h4>
                 <h4 title="Written">W</h4>
             </div>
@@ -85,63 +91,63 @@
                 </div>
             </fieldset>
         </div>
-        <h3><br>Abilities</h3>
+        <br>
         <div class="abilities-container">
+            <h3><br>Abilities</h3>
             <fieldset class="repeating_abilities">
                 <div class="ability">
                     <input type="text" name="attr_abilitty_name">
                     <details class = "ability_desc">
                         <summary></summary>
                         <textarea name="attr_abilitty_description" placeholder="Description"></textarea>
-                        <button type="roll" name="attr_ability_roll" value="&{template:default}{{name=@{abilitty_name}}}{{@{abilitty_description}}}"> Display in chat</button>
+                        <button type="roll" class="sheet-button"name="attr_ability_roll" value="&{template:default}{{name=@{abilitty_name}}}{{@{abilitty_description}}}"> Display in chat</button>
                     </details>
                 </div>
             </fieldset>
         </div>
         </div>
     </div>
-
     <div class="sheet-page sheet-skills">
         <div class="skills-grid">
-            <div class="skills-grid-header"><h3>Social</h3></div>
+            <div class="skills-grid-header first-skills-grid-header"><h3>Social</h3></div>
 
             <h4></h4>
-            <h4>Name</h4>
+            <h4 id="skills-grid-header-Name">Name</h4>
             <h4>Grade</h4>
             <h4>Potential</h4>
             <h4>Focuses</h4>
             
-            <button type="action" name="act_leadership" class="skill-roll-button">Roll</button>
+            <button type="action" name="act_leadership" class="skill-roll-button" title="Roll"><img src="https://i.imgur.com/Aa3PHFG.png"></button>
             <div>Leadership</div>
             <input class="skills-grid-input" type="number" name="attr_leadership-grade" value="1"></input>
             <input class="skills-grid-input" type="number" name="attr_leadership-potential" value="10"></input>
             <input class="skills-grid-input" type="text" name="attr_leadership-focuses" value=""></input>
             
-            <button type="action" name="act_persuasion" class="skill-roll-button">Roll</button>
+            <button type="action" name="act_persuasion" class="skill-roll-button" title="Roll"><img src="https://i.imgur.com/Aa3PHFG.png"></button>
             <div>Persuasion</div>
             <input class="skills-grid-input" type="number" name="attr_persuasion-grade" value="1"></input>
             <input class="skills-grid-input" type="number" name="attr_persuasion-potential" value="10"></input>
             <input class="skills-grid-input" type="text" name="attr_persuasion-focuses" value=""></input>
 
-            <button type="action" name="act_intimidation" class="skill-roll-button">Roll</button>
+            <button type="action" name="act_intimidation" class="skill-roll-button" title="Roll"><img src="https://i.imgur.com/Aa3PHFG.png"></button>
             <div>Intimidation</div>
             <input class="skills-grid-input" type="number" name="attr_intimidation-grade" value="1"></input>
             <input class="skills-grid-input" type="number" name="attr_intimidation-potential" value="10"></input>
             <input class="skills-grid-input" type="text" name="attr_intimidation-focuses" value=""></input>
 
-            <button type="action" name="act_insight" class="skill-roll-button">Roll</button>
+            <button type="action" name="act_insight" class="skill-roll-button" title="Roll"><img src="https://i.imgur.com/Aa3PHFG.png"></button>
             <div>Insight</div>
             <input class="skills-grid-input" type="number" name="attr_insight-grade" value="1"></input>
             <input class="skills-grid-input" type="number" name="attr_insight-potential" value="10"></input>
             <input class="skills-grid-input" type="text" name="attr_insight-focuses" value=""></input>
             
-            <button type="action" name="act_deceit" class="skill-roll-button">Roll</button>
+            <button type="action" name="act_deceit" class="skill-roll-button" title="Roll"><img src="https://i.imgur.com/Aa3PHFG.png"></button>
             <div>Deceit</div>
             <input class="skills-grid-input" type="number" name="attr_deceit-grade" value="1"></input>
             <input class="skills-grid-input" type="number" name="attr_deceit-potential" value="10"></input>
             <input class="skills-grid-input" type="text" name="attr_deceit-focuses" value=""></input>
 
-            <button type="action" name="act_barter" class="skill-roll-button">Roll</button>
+            <button type="action" name="act_barter" class="skill-roll-button" title="Roll"><img src="https://i.imgur.com/Aa3PHFG.png"></button>
             <div>Barter</div>
             <input class="skills-grid-input" type="number" name="attr_barter-grade" value="1"></input>
             <input class="skills-grid-input" type="number" name="attr_barter-potential" value="10"></input>
@@ -149,31 +155,31 @@
 
             <div class="skills-grid-header"><h3>Intellect</h3></div>
 
-            <button type="action" name="act_linguistics" class="skill-roll-button">Roll</button>
+            <button type="action" name="act_linguistics" class="skill-roll-button" title="Roll"><img src="https://i.imgur.com/Aa3PHFG.png"></button>
             <div>Linguistics</div>
             <input class="skills-grid-input" type="number" name="attr_linguistics-grade" value="1"></input>
             <input class="skills-grid-input" type="number" name="attr_linguistics-potential" value="10"></input>
             <input class="skills-grid-input" type="text" name="attr_linguistics-focuses" value=""></input>
             
-            <button type="action" name="act_medicine" class="skill-roll-button">Roll</button>
+            <button type="action" name="act_medicine" class="skill-roll-button" title="Roll"><img src="https://i.imgur.com/Aa3PHFG.png"></button>
             <div>Medicine</div>
             <input class="skills-grid-input" type="number" name="attr_medicine-grade" value="1"></input>
             <input class="skills-grid-input" type="number" name="attr_medicine-potential" value="10"></input>
             <input class="skills-grid-input" type="text" name="attr_medicine-focuses" value=""></input>
 
-            <button type="action" name="act_mechanics" class="skill-roll-button">Roll</button>
+            <button type="action" name="act_mechanics" class="skill-roll-button" title="Roll"><img src="https://i.imgur.com/Aa3PHFG.png"></button>
             <div>Mechanics</div>
             <input class="skills-grid-input" type="number" name="attr_mechanics-grade" value="1"></input>
             <input class="skills-grid-input" type="number" name="attr_mechanics-potential" value="10"></input>
             <input class="skills-grid-input" type="text" name="attr_mechanics-focuses" value=""></input>
 
-            <button type="action" name="act_investigation" class="skill-roll-button">Roll</button>
+            <button type="action" name="act_investigation" class="skill-roll-button" title="Roll"><img src="https://i.imgur.com/Aa3PHFG.png"></button>
             <div>Investigation</div>
             <input class="skills-grid-input" type="number" name="attr_investigation-grade" value="1"></input>
             <input class="skills-grid-input" type="number" name="attr_investigation-potential" value="10"></input>
             <input class="skills-grid-input" type="text" name="attr_investigation-focuses" value=""></input>
             
-            <button type="action" name="act_acumen" class="skill-roll-button">Roll</button>
+            <button type="action" name="act_acumen" class="skill-roll-button" title="Roll"><img src="https://i.imgur.com/Aa3PHFG.png"></button>
             <div>Acumen</div>
             <input class="skills-grid-input" type="number" name="attr_acumen-grade" value="1"></input>
             <input class="skills-grid-input" type="number" name="attr_acumen-potential" value="10"></input>
@@ -181,43 +187,43 @@
 
             <div class="skills-grid-header"><h3>Physique</h3></div>
 
-            <button type="action" name="act_craft" class="skill-roll-button">Roll</button>
+            <button type="action" name="act_craft" class="skill-roll-button" title="Roll"><img src="https://i.imgur.com/Aa3PHFG.png"></button>
             <div>Craft</div>
             <input class="skills-grid-input" type="number" name="attr_craft-grade" value="1"></input>
             <input class="skills-grid-input" type="number" name="attr_craft-potential" value="10"></input>
             <input class="skills-grid-input" type="text" name="attr_craft-focuses" value=""></input>
             
-            <button type="action" name="act_mele" class="skill-roll-button">Roll</button>
-            <div>Mele</div>
-            <input class="skills-grid-input" type="number" name="attr_mele-grade" value="1"></input>
-            <input class="skills-grid-input" type="number" name="attr_mele-potential" value="10"></input>
-            <input class="skills-grid-input" type="text" name="attr_mele-focuses" value=""></input>
+            <button type="action" name="act_melee" class="skill-roll-button" title="Roll"><img src="https://i.imgur.com/Aa3PHFG.png"></button>
+            <div>Melee</div>
+            <input class="skills-grid-input" type="number" name="attr_melee-grade" value="1"></input>
+            <input class="skills-grid-input" type="number" name="attr_melee-potential" value="10"></input>
+            <input class="skills-grid-input" type="text" name="attr_melee-focuses" value=""></input>
 
-            <button type="action" name="act_brawl" class="skill-roll-button">Roll</button>
+            <button type="action" name="act_brawl" class="skill-roll-button" title="Roll"><img src="https://i.imgur.com/Aa3PHFG.png"></button>
             <div>Brawl</div>
             <input class="skills-grid-input" type="number" name="attr_brawl-grade" value="1"></input>
             <input class="skills-grid-input" type="number" name="attr_brawl-potential" value="10"></input>
             <input class="skills-grid-input" type="text" name="attr_brawl-focuses" value=""></input>
 
-            <button type="action" name="act_marksman" class="skill-roll-button">Roll</button>
+            <button type="action" name="act_marksman" class="skill-roll-button" title="Roll"><img src="https://i.imgur.com/Aa3PHFG.png"></button>
             <div>Marksman</div>
             <input class="skills-grid-input" type="number" name="attr_marksman-grade" value="1"></input>
             <input class="skills-grid-input" type="number" name="attr_marksman-potential" value="10"></input>
             <input class="skills-grid-input" type="text" name="attr_marksman-focuses" value=""></input>
             
-            <button type="action" name="act_endurance" class="skill-roll-button">Roll</button>
+            <button type="action" name="act_endurance" class="skill-roll-button" title="Roll"><img src="https://i.imgur.com/Aa3PHFG.png"></button>
             <div>Endurance</div>
             <input class="skills-grid-input" type="number" name="attr_endurance-grade" value="1"></input>
             <input class="skills-grid-input" type="number" name="attr_endurance-potential" value="10"></input>
             <input class="skills-grid-input" type="text" name="attr_endurance-focuses" value=""></input>
 
-            <button type="action" name="act_stealth" class="skill-roll-button">Roll</button>
+            <button type="action" name="act_stealth" class="skill-roll-button" title="Roll"><img src="https://i.imgur.com/Aa3PHFG.png"></button>
             <div>Stealth</div>
             <input class="skills-grid-input" type="number" name="attr_stealth-grade" value="1"></input>
             <input class="skills-grid-input" type="number" name="attr_stealth-potential" value="10"></input>
             <input class="skills-grid-input" type="text" name="attr_stealth-focuses" value=""></input>
 
-            <button type="action" name="act_agility" class="skill-roll-button">Roll</button>
+            <button type="action" name="act_agility" class="skill-roll-button" title="Roll"><img src="https://i.imgur.com/Aa3PHFG.png"></button>
             <div>Agility</div>
             <input class="skills-grid-input" type="number" name="attr_agility-grade" value="1"></input>
             <input class="skills-grid-input" type="number" name="attr_agility-potential" value="10"></input>
@@ -225,43 +231,43 @@
 
             <div class="skills-grid-header"><h3>Wisdom</h3></div>
 
-            <button type="action" name="act_art" class="skill-roll-button">Roll</button>
+            <button type="action" name="act_art" class="skill-roll-button" title="Roll"><img src="https://i.imgur.com/Aa3PHFG.png"></button>
             <div>Art</div>
             <input class="skills-grid-input" type="number" name="attr_art-grade" value="1"></input>
             <input class="skills-grid-input" type="number" name="attr_art-potential" value="10"></input>
             <input class="skills-grid-input" type="text" name="attr_art-focuses" value=""></input>
             
-            <button type="action" name="act_survival" class="skill-roll-button">Roll</button>
+            <button type="action" name="act_survival" class="skill-roll-button" title="Roll"><img src="https://i.imgur.com/Aa3PHFG.png"></button>
             <div>Survival</div>
             <input class="skills-grid-input" type="number" name="attr_survival-grade" value="1"></input>
             <input class="skills-grid-input" type="number" name="attr_survival-potential" value="10"></input>
             <input class="skills-grid-input" type="text" name="attr_survival-focuses" value=""></input>
 
-            <button type="action" name="act_willpower" class="skill-roll-button">Roll</button>
+            <button type="action" name="act_willpower" class="skill-roll-button" title="Roll"><img src="https://i.imgur.com/Aa3PHFG.png"></button>
             <div>Willpower</div>
             <input class="skills-grid-input" type="number" name="attr_willpower-grade" value="1"></input>
             <input class="skills-grid-input" type="number" name="attr_willpower-potential" value="10"></input>
             <input class="skills-grid-input" type="text" name="attr_willpower-focuses" value=""></input>
 
-            <button type="action" name="act_spellweave" class="skill-roll-button">Roll</button>
+            <button type="action" name="act_spellweave" class="skill-roll-button" title="Roll"><img src="https://i.imgur.com/Aa3PHFG.png"></button>
             <div>Spellweave</div>
             <input class="skills-grid-input" type="number" name="attr_spellweave-grade" value="1"></input>
             <input class="skills-grid-input" type="number" name="attr_spellweave-potential" value="10"></input>
             <input class="skills-grid-input" type="text" name="attr_spellweave-focuses" value=""></input>
             
-            <button type="action" name="act_aura" class="skill-roll-button">Roll</button>
+            <button type="action" name="act_aura" class="skill-roll-button" title="Roll"><img src="https://i.imgur.com/Aa3PHFG.png"></button>
             <div>Aura</div>
             <input class="skills-grid-input" type="number" name="attr_aura-grade" value="1"></input>
             <input class="skills-grid-input" type="number" name="attr_aura-potential" value="10"></input>
             <input class="skills-grid-input" type="text" name="attr_aura-focuses" value=""></input>
 
-            <button type="action" name="act_perception" class="skill-roll-button">Roll</button>
+            <button type="action" name="act_perception" class="skill-roll-button" title="Roll"><img src="https://i.imgur.com/Aa3PHFG.png"></button>
             <div>Perception</div>
             <input class="skills-grid-input" type="number" name="attr_perception-grade" value="1"></input>
             <input class="skills-grid-input" type="number" name="attr_perception-potential" value="10"></input>
             <input class="skills-grid-input" type="text" name="attr_perception-focuses" value=""></input>
 
-            <button type="action" name="act_feral" class="skill-roll-button">Roll</button>
+            <button type="action" name="act_feral" class="skill-roll-button" title="Roll"><img src="https://i.imgur.com/Aa3PHFG.png"></button>
             <div>Feral</div>
             <input class="skills-grid-input" type="number" name="attr_feral-grade" value="1"></input>
             <input class="skills-grid-input" type="number" name="attr_feral-potential" value="10"></input>
@@ -270,11 +276,34 @@
         </div>
     </div>
     <div class="sheet-page sheet-magic">
-        <h2>Magic</h2>
         <div class="magic-cast">
-            <h4 title="Total number of sphere levels used">Total sphere levels used:</h4>
+            <h4 name="levels" title="Total number of sphere levels of all spheres used">Sphere levels used:</h4>
             <input class="magic-cast-input" type="number" name="attr_cast-sphere-count" value="0"></input>
-            <button type="action" name="act_cast-spell">Cast!</button>
+            <span class="magic-cast-difficulty-mod">
+                <h4>Reduced difficulty:</h4>
+                <input type="number" name="attr_magic-cast-difficulty-modifier" value="0"></input>
+              </span>
+            <h4 name="ritual">Ritual length:</h4>
+            <input type="hidden" class ="magic-ritual-length" name="attr_magic-cast-ritual-length"  value=""/>
+            <select name="attr_magic-cast-ritual-length">
+                <option value="1">1 Round</option>
+                <option value="1.5">3 Rounds</option\>
+                <option value="2">1 Minute</option>
+                <option value="2.5">10 Minutes</option>
+                <option value="3">1 Hour</option>
+                <option value="3.5">6 Hours</option>
+                <option value="3.6">Days</option>
+              </select>
+              <span class="magic-cast-ritual-days">
+                <h4>Day count:</h4>
+                <input class="magic-cast-input" type="number" name="attr_magic-cast-ritual-days" value="0"></input>
+              </span>
+            <button type="action" class="sheet-button" name="act_cast-spell">Cast</button>
+        </div>
+        <input type="hidden" class="sheet-magicTabstoggle" name="attr_sheetMagicTab" value="magic-grid"/>
+        <div class="magic-grid-section-header magic-grid-section-header-buttons">
+            <button type="action" class="sheet-button" name="act_magic-grid"><span>Show Spheres</span></button>
+            <button type="action" class="sheet-button" name="act_magic-rotes-grid"><span>Show Rotes</span></button>
         </div>
         <div class="magic-grid">
             <div class="magic-grid-section-header">
@@ -282,56 +311,56 @@
             </div>
             <div class="magic-grid-section" id="elemental">
                 <div class="magic-grid-item">
-                    <button type="action" name="act_fire-sphere-info" title="Sphere information">i</button>
+                    <button type="action" name="act_fire-sphere-info" title="Sphere information"><img src="https://i.imgur.com/GGez8sR.png"></button>
                     <input type="text" name="attr_fire-sphere-image">
                     <img name="attr_fire-sphere-image">
                     <h4>Fire</h4>
                     <input class="magic-grid-input" type="number" name="attr_fire-sphere" value="0"></input>
                 </div>
                 <div class="magic-grid-item">
-                    <button type="action" name="act_earth-sphere-info" title="Sphere information">i</button>
+                    <button type="action" name="act_earth-sphere-info" title="Sphere information"><img src="https://i.imgur.com/GGez8sR.png"></button>
                     <input type="text" name="attr_earth-sphere-image">
                     <img name="attr_earth-sphere-image">
                     <h4>Earth</h4>
                     <input class="magic-grid-input" type="number" name="attr_earth-sphere" value="0"></input>
                 </div>
                 <div class="magic-grid-item">
-                    <button type="action" name="act_air-sphere-info" title="Sphere information">i</button>
+                    <button type="action" name="act_air-sphere-info" title="Sphere information"><img src="https://i.imgur.com/GGez8sR.png"></button>
                     <input type="text" name="attr_air-sphere-image">
                     <img name="attr_air-sphere-image">
                     <h4>Air</h4>
                     <input class="magic-grid-input" type="number" name="attr_air-sphere" value="0"></input>
                 </div>
                 <div class="magic-grid-item">
-                    <button type="action" name="act_water-sphere-info" title="Sphere information">i</button>
+                    <button type="action" name="act_water-sphere-info" title="Sphere information"><img src="https://i.imgur.com/GGez8sR.png"></button>
                     <input type="text" name="attr_water-sphere-image">
                     <img name="attr_water-sphere-image">
                     <h4>Water</h4>
                     <input class="magic-grid-input" type="number" name="attr_water-sphere" value="0"></input>
                 </div>
                 <div class="magic-grid-item">
-                    <button type="action" name="act_darkness-sphere-info" title="Sphere information">i</button>
+                    <button type="action" name="act_darkness-sphere-info" title="Sphere information"><img src="https://i.imgur.com/GGez8sR.png"></button>
                     <input type="text" name="attr_darkness-sphere-image">
                     <img name="attr_darkness-sphere-image">
                     <h4>Darkness</h4>
                     <input class="magic-grid-input" type="number" name="attr_darkness-sphere" value="0"></input>
                 </div>
                 <div class="magic-grid-item">
-                    <button type="action" name="act_light-sphere-info" title="Sphere information">i</button>
+                    <button type="action" name="act_light-sphere-info" title="Sphere information"><img src="https://i.imgur.com/GGez8sR.png"></button>
                     <input type="text" name="attr_light-sphere-image">
                     <img name="attr_light-sphere-image">
                     <h4>Light</h4>
                     <input class="magic-grid-input" type="number" name="attr_light-sphere" value="0"></input>
                 </div>
                 <div class="magic-grid-item">
-                    <button type="action" name="act_force-sphere-info" title="Sphere information">i</button>
+                    <button type="action" name="act_force-sphere-info" title="Sphere information"><img src="https://i.imgur.com/GGez8sR.png"></button>
                     <input type="text" name="attr_force-sphere-image">
                     <img name="attr_force-sphere-image">
                     <h4>Force</h4>
                     <input class="magic-grid-input" type="number" name="attr_force-sphere" value="0"></input>
                 </div>
                 <div class="magic-grid-item">
-                    <button type="action" name="act_cold-sphere-info" title="Sphere information">i</button>
+                    <button type="action" name="act_cold-sphere-info" title="Sphere information"><img src="https://i.imgur.com/GGez8sR.png"></button>
                     <input type="text" name="attr_cold-sphere-image">
                     <img name="attr_cold-sphere-image">
                     <h4>Cold</h4>
@@ -343,28 +372,28 @@
             </div>
             <div class="magic-grid-section" id="flesh">
                 <div class="magic-grid-item">
-                    <button type="action" name="act_healing-sphere-info" title="Sphere information">i</button>
+                    <button type="action" name="act_healing-sphere-info" title="Sphere information"><img src="https://i.imgur.com/GGez8sR.png"></button>
                     <input type="text" name="attr_healing-sphere-image">
                     <img name="attr_healing-sphere-image">
                     <h4>Healing</h4>
                     <input class="magic-grid-input" type="number" name="attr_healing-sphere" value="0"></input>
                 </div>
                 <div class="magic-grid-item">
-                    <button type="action" name="act_decay-sphere-info" title="Sphere information">i</button>
+                    <button type="action" name="act_decay-sphere-info" title="Sphere information"><img src="https://i.imgur.com/GGez8sR.png"></button>
                     <input type="text" name="attr_decay-sphere-image">
                     <img name="attr_decay-sphere-image">
                     <h4>Decay</h4>
                     <input class="magic-grid-input" type="number" name="attr_decay-sphere" value="0"></input>
                 </div>
                 <div class="magic-grid-item">
-                    <button type="action" name="act_metamorphosis-sphere-info" title="Sphere information">i</button>
+                    <button type="action" name="act_metamorphosis-sphere-info" title="Sphere information"><img src="https://i.imgur.com/GGez8sR.png"></button>
                     <input type="text" name="attr_metamorphosis-sphere-image">
                     <img name="attr_metamorphosis-sphere-image">
                     <h4>Metamorphosis</h4>
                     <input class="magic-grid-input" type="number" name="attr_metamorphosis-sphere" value="0"></input>
                 </div>
                 <div class="magic-grid-item">
-                    <button type="action" name="act_flora-sphere-info" title="Sphere information">i</button>
+                    <button type="action" name="act_flora-sphere-info" title="Sphere information"><img src="https://i.imgur.com/GGez8sR.png"></button>
                     <input type="text" name="attr_flora-sphere-image">
                     <img name="attr_flora-sphere-image">
                     <h4>Flora</h4>
@@ -376,35 +405,35 @@
             </div>
             <div class="magic-grid-section" id="esoteric">
                 <div class="magic-grid-item">
-                    <button type="action" name="act_duration-sphere-info" title="Sphere information">i</button>
+                    <button type="action" name="act_duration-sphere-info" title="Sphere information"><img src="https://i.imgur.com/GGez8sR.png"></button>
                     <input type="text" name="attr_duration-sphere-image">
                     <img name="attr_duration-sphere-image">
                     <h4>Duration</h4>
                     <input class="magic-grid-input" type="number" name="attr_duration-sphere" value="0"></input>
                 </div>
                 <div class="magic-grid-item">
-                    <button type="action" name="act_expansion-sphere-info" title="Sphere information">i</button>
+                    <button type="action" name="act_expansion-sphere-info" title="Sphere information"><img src="https://i.imgur.com/GGez8sR.png"></button>
                     <input type="text" name="attr_expansion-sphere-image">
                     <img name="attr_expansion-sphere-image">
                     <h4>Expansion</h4>
                     <input class="magic-grid-input" type="number" name="attr_expansion-sphere" value="0"></input>
                 </div>
                 <div class="magic-grid-item">
-                    <button type="action" name="act_projection-sphere-info" title="Sphere information">i</button>
+                    <button type="action" name="act_projection-sphere-info" title="Sphere information"><img src="https://i.imgur.com/GGez8sR.png"></button>
                     <input type="text" name="attr_projection-sphere-image">
                     <img name="attr_projection-sphere-image">
                     <h4>Projection</h4>
                     <input class="magic-grid-input" type="number" name="attr_projection-sphere" value="0"></input>
                 </div>
                 <div class="magic-grid-item">
-                    <button type="action" name="act_mind-sphere-info" title="Sphere information">i</button>
+                    <button type="action" name="act_mind-sphere-info" title="Sphere information"><img src="https://i.imgur.com/GGez8sR.png"></button>
                     <input type="text" name="attr_mind-sphere-image">
                     <img name="attr_mind-sphere-image">
                     <h4>Mind</h4>
                     <input class="magic-grid-input" type="number" name="attr_mind-sphere" value="0"></input>
                 </div>
                 <div class="magic-grid-item">
-                    <button type="action" name="act_summoning-sphere-info" title="Sphere information">i</button>
+                    <button type="action" name="act_summoning-sphere-info" title="Sphere information"><img src="https://i.imgur.com/GGez8sR.png"></button>
                     <input type="text" name="attr_summoning-sphere-image">
                     <img name="attr_summoning-sphere-image">
                     <h4>Summoning</h4>
@@ -412,103 +441,464 @@
                 </div>
             </div>
         </div>
+        <div class="magic-rotes-grid"> 
+            <div class="rotes-header">
+                <h4>Name</h4>
+                <h4 id="rotes-header-levels">Levels</h4>
+            </div>
+            <fieldset class="repeating_rotes">
+                <div class="rote">
+                    <input type="text" name="attr_rote_name">
+                    <input type="number" name="attr_rote-levels" value="1">
+                    <button type="action" class="sheet-button" name="act_fill-rote"><span>Fill Rote</span></button>
+                    <details class = "rote_desc">
+                        <summary></summary>
+                        <textarea name="attr_rote_description" placeholder="Description"></textarea>
+                        <button type="roll" class="sheet-button"name="attr_rote_roll" value="&{template:default}{{name=@{rote_name}}}{{@{rote_description}}}"> Display in chat</button>
+                    </details>
+                </div>
+            </fieldset>
+        </div>
     </div>
+
     <div class="sheet-page sheet-combat">
-        <h2>Combat</h2>
-        <span>All weapons, rotes and other combat buttons go here</span> 
+        <div class="combat-stats-overview">
+            <div class="combat-stats-overview-item" title="Agility + Perception + Insight">
+                <h4>Initiative: </h4>
+                <input type="hidden" name="attr_initiative" value = "0">
+                <span class="readonly" name="attr_initiative"></span>
+            </div>
+            <div class="combat-stats-overview-item" title="Agility + 3">
+                <h4>Speed: </h4>
+                <input type="hidden" name="attr_speed" value = "3">
+                <span class="readonly" name="attr_speed"></span>
+            </div>
+        </div>
+        <div class="combat-stats-defenses">
+            <h4>Governing Skill</h4>
+            <h4 title="Penetration of enemy weapon">Pen</h4>
+            <h4>Apply&nbsp;Armor</h4>
+            <h4>Sneak&nbsp;Attack</h4>
+            <h4></h4>
+            <select name="attr_combat-defense-skill">
+                <option value="melee">Melee</option>
+                <option value="brawl">Brawl</option>
+                <option value="true-agility">Agility</option>
+                <option value="aura">Aura</option>
+            </select>
+            <input type="number" name="attr_enemy-pen" value = "0" title="Penetration of enemy weapon"/>
+            <input type="checkbox" name="attr_apply-armor" checked=""/>
+            <input type="checkbox" name="attr_is-sneak-attack"/>
+            <button type="action" class="sheet-button" name="act_defend">Defend</button>
+        </div>
+        <div class="magic-cast">
+            <h4 name="levels" title="Total number of sphere levels of all spheres used">Sphere levels used:</h4>
+            <input class="magic-cast-input" type="number" name="attr_cast-sphere-count" value="0"></input>
+            <span class="magic-cast-difficulty-mod">
+                <h4>Reduced difficulty:</h4>
+                <input type="number" name="attr_magic-cast-difficulty-modifier" value="0"></input>
+              </span>
+            <h4 name="ritual">Ritual length:</h4>
+            <input type="hidden" class ="magic-ritual-length" name="attr_magic-cast-ritual-length"  value=""/>
+            <select name="attr_magic-cast-ritual-length">
+                <option value="1">1 Round</option>
+                <option value="1.5">3 Rounds</option>
+                <option value="2">1 Minute</option>
+                <option value="2.5">10 Minutes</option>
+                <option value="3">1 Hour</option>
+                <option value="3.5">6 Hours</option>
+                <option value="3.6">Days</option>
+              </select>
+              <span class="magic-cast-ritual-days">
+                <h4>Day count:</h4>
+                <input class="magic-cast-input" type="number" name="attr_magic-cast-ritual-days" value="0"></input>
+              </span>
+              <div class="cast-buttons">
+                <button type="action" class="sheet-button" name="act_cast-spell">Cast</button>
+                <button type="action" class="sheet-button" name="act_show-rotes">Rotes</button>
+              </div>
+        </div>
+        <div class="combat-equipment-overview">
+            <h3>Weapons</h3>
+            <h4></h4>
+            <h3>Armor</h3>
+            <div class="combat-weapon-overview">
+                <fieldset class="repeating_weapons">
+                    <div class="weapon">
+                        <h4>Weapon Name</h4>
+                        <input type="text" name="attr_weapon-name">
+                        <div class="combat-item-stats">
+                            <h4 title="Attack Bonus">Att</h4>
+                            <h4 title="Armor Penetration">Pen</h4>
+                            <h4 title="Skill Required">Req</h4>
+                            <input type="number" name="attr_weapon-attack" title="Attack Bonus" value="0">
+                            <input type="number" name="attr_weapon-penetration" title="Armor Penetration" value="0">
+                            <input type="number" name="attr_weapon-requirement" title="Skill Required" value="0">
+                        </div>
+                        <h4>Weapon Qualities</h4>
+                        <input type="text" name="attr_weapon_qualities">
+                        <div class="combat-item-actions">
+                            <select name="attr_weapon_skill">
+                                <option value="melee">Melee</option>
+                                <option value="brawl">Brawl</option>
+                                <option value="marksman">Marksman</option>
+                            </select>
+                            <h5></h5>
+                            <button type="action" class="sheet-button" name="act_weapon-attack">Attack</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <h4></h4>
+            <div class="combat-armor-overview">
+                <fieldset class="repeating_armors">
+                    <div class="armor">
+                        <h4>Armor Name</h4>
+                        <input type="text" name="attr_armor-name">
+                        <div class="combat-item-stats">
+                            <h4 title="Defense Bonus">Def</h4>
+                            <h4 title="Armor Penalty">Pen</h4>
+                            <h4 title="Armor Requirement">Req</h4>
+                            <input type="number" name="attr_armor-defense" title="Defense Bonus" value="0">
+                            <input type="number" name="attr_armor-penalty" title="Armor Penalty" value="0">
+                            <input type="number" name="attr_armor-requirement" title="Armor Requirement" value="0">
+                        </div>
+                        <h4>Armor Qualities</h4>
+                        <input type="text" name="attr_armor-qualities">
+                    </div>
+                </fieldset>
+            </div>
+        </div>
     </div>
+
     <div class="sheet-page sheet-inventory">
-        <h2>Inventory</h2>
-        <span>All of the furniture you managed to steal</span> 
+        <fieldset class="repeating_inventory">
+            <div class="item">
+                <input type="number" name="attr_item_count">
+                <input type="text" name="attr_item_name">
+                <details class = "item_desc">
+                    <summary></summary>
+                    <textarea name="attr_item_description" placeholder="Description"></textarea>
+                    <button type="roll" class="sheet-button"name="attr_ability_roll" value="&{template:default}{{name=@{item_name}}}{{@{item_description}}}"> Display in chat</button>
+                </details>
+            </div>
+        </fieldset>
     </div>
     <div class="sheet-page sheet-notes">
-        <h2>Notes</h2>
-        <span>Various notes, descriptions, scars and more</span> 
+        <div class="sheet-notes-marks">
+            <div class="sheet-notes-marks-item" title="Who was the first person who you killed for any reason?">
+                <h4>Black Mark: </h4>
+                <input type="text" name="attr_black-mark-name" value = "">
+            </div>
+            <div class="sheet-notes-marks-item" title="Who was the first person who you killed for personal gain?">
+                <h4>Blood Mark: </h4>
+                <input type="text" name="attr_blood-mark-name" value = "">
+            </div>
+        </div>
+        <div class="sheet-notes-body">
+            <div class="notes-body-scars-mutations">
+                <h3>Scars and mutations</h3>
+                <fieldset class="repeating_scars-mutations">
+                    <div class="scar-mutation">
+                        <input type="text" name="attr_scar-mutation-name">
+                        <details class = "scar-mutation-desc">
+                            <summary></summary>
+                            <textarea name="attr_scar-mutation-description" placeholder="Description"></textarea>
+                            <button type="roll" class="sheet-button"name="attr_ability_roll" value="&{template:default}{{name=@{scar-mutation-name}}}{{@{scar-mutation-description}}}"> Display in chat</button>
+                        </details>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="character-description">
+                <h3>Character description</h3>
+                <textarea name="attr_character-description" placeholder="Description" ></textarea>
+            </div>
+            <div class="character-notes">
+                <h3>Additional notes</h3>
+                <textarea name="attr_character-notes" placeholder="Notes"></textarea>
+            </div>
+        </div>
     </div>
 
-    <div class="sheet-page sheet-fire-sphere-info">
+    <div class="sheet-page sheet-fire-sphere-info magic-info">
         <button type="action" name="act_magic-back"><img src="https://i.imgur.com/BfXz7nW.png"></button>
         <h2>Fire sphere</h2>
+        <div class="magic-info-levels">
+            <p><h4>Level 1</h4>Your spells may create mild warmth to unpleasant heat which can grant a +1 bonus to an Endurance check made to resist cold weather. Candle flames can flare, or torches simmered down to a flicker. This level of Fire can be used to attack at a -1 penalty.</p>
+            <p><h4>Level 2</h4>Your spells might cause a torch to explode, or tendrils of flame could be ripped from a campfire. The level of Fire can be used to attack at no penalty or bonus.</p>
+            <p><h4>Level 3</h4>Your spells may now create and destroy small amounts of flame and heat. In this way you can set things on fire that wouldn't normally burn, or simply create a hovering, sourceless flame. This added control allows you to bestow a +2 bonus to Endurance against cold environments. This level of Fire can be used to attack with a +1 bonus, and provide +1 resistance to Fire.</p>
+            <p><h4>Level 4</h4>Your spells may now consume normally flammable materials rapidly. Non-flammable materials can be coated in fire and thus heated. At this level it may be placed on a weapon or other held object in an attempt to disarm. Should they fail their Aura roll, they may choose to let go of the weapon, thus preventing damage. To hold onto the weapon, they must also overcome your Spellweave with their Willpower. Even should they be successful in this, they will still take Strained and Wounded as if you had struck them with a damage effect. This could also be applied to armors, but the effect would be no different than a standard damage attempt. This level of Fire can be used to attack with a +1 bonus.</p>
+            <p><h4>Level 5</h4>Your spells may now raise the temperature of soft metals such as copper to a workable heat, potentially allowing a smith to work without a smelter or forge fire. It also weakens the structural stability of such metals. You may also grant a +3 bonus to Endurance to resist cold environments. This level of Fire can be used to attack with a +2 bonus, and provide +2 resistance to Fire.</p>
+            <p><h4>Level 6</h4>Your spells may now raise the temperature of tougher metals such as iron to a workable heat, weakening them and allowing them to be shaped by a craftsman. This same effect can also liquefy softer metals like copper. This level of Fire can be used to attack with a +2 bonus.</p>
+            <p><h4>Level 7</h4>Your spells may liquefy harder metals such as iron. You may grant total immunity to cold weather conditions. This has the added bonus of granting a +1 against supernatural Cold. This level of Fire can be used to attack with a +3 bonus, and provide +3 resistance to Fire.</p>
+            <p><h4>Level 8</h4>Your spells may now heat stone, weakening it and making it unbearably hot even without actual contact. This level of Fire can be used to attack with a +3 bonus.</p>
+            <p><h4>Level 9</h4>Your spells may now liquefy stone, which radiates damaging levels of heat up to 2 meters away from it. Using this you may walk though solid rock for as long as your Duration allows. Beware, as it will not allow you to breathe while doing so. You cannot actually move the stone, liquid or no. This level of Fire can be used to attack with a +4 bonus, and provide immunity to your own Fire effects, and a +4 resistance to the Fire effects of others.</p>
+            <p><h4>Level 10</h4>Your magical fire cannot be extinguished even by supernatural Cold. You may use jets of fire to double your jump height and distance. This level of Fire can be used to attack with a +5 bonus.</p>
+        </div>
     </div>
 
-    <div class="sheet-page sheet-earth-sphere-info">
+    <div class="sheet-page sheet-earth-sphere-info magic-info">
         <button type="action" name="act_magic-back"><img src="https://i.imgur.com/BfXz7nW.png"></button>
         <h2>Earth sphere</h2>
+        <div class="magic-info-levels">
+            <p><h4>Level l</h4>Your spells may manipulate granular Earth such as soil, sand, or silt, and transmute one to another. It can make soil more fertile, or drain it to almost unusable grit. This level of Earth can be used to attack at a -1 penalty.</p>
+            <p><h4>Level 2</h4>Your spells may start effecting thicker clumps of Earth such as cobblestone or gravel. You may render a patch of land as wide as your Expansion allows ideal for farming, or completely useless waste. The level of Earth can be used to attack at no penalty or bonus.</p>
+            <p><h4>Level 3</h4>You may start creating small amounts of Earth from nothing, and start manipulating stone. Stone can be shaped into spikes, or transmuted into sand. Such shaping of stone can root a creature in place. They may be able to break free though sheer strength, even if they fail to resist the spell via Aura. This level of Earth can be used to attack with a +1 bonus, and provide +1 resistance to Earth.</p>
+            <p><h4>Level 4</h4>Your spells may begin working with soft metals such as copper. Since gold is a soft metal, it can easily to transmuted from other materials Transmuted items will only stay so for as long as your Duration allows, making such transmutations more impractical than they may seem at first. Even so, such effects can render an opponent's weapon ineffective, reducing its Attack and PEN by -1. You may also walk though solid soil and sand almost as if swimming at half your normal Speed. Beware, as you will not be able to breathe when submerged, and you may run into denser material that would halt your progress. This level of Earth can be used to attack with a +1 bonus.</p>
+            <p><h4>Level 5</h4>Your spells have reached a level of control that you may wrap any substance you may work with around yourself for protection. This grants an additional +1 to Defense of any armor worn, even if the armor wasn't initially made of metal. You may begin manipulating iron and other tougher metals as you did copper before. This level of Earth can be used to attack with a +2 bonus, and provide +2 resistance to Earth.</p>
+            <p><h4>Level 6</h4>Your spells may now effect steel, and other refined metals. You may transmute iron or even copper into steel, or if you're feeling creative other strange alloys. You may render an opponent's metal weapon useless, and even create gold from nothing, lasting forever. You may also walk though solid stone at half your normal Speed. Beware, as you will not be able to breathe while submerged in rock, and you may run into denser veins of material that halts your progress. This level of Earth can be used to attack with a +2 bonus.</p>
+            <p><h4>Level 7</h4>Your spells refined control extends to soft gems, forming wonderful crystal out of common sand. This control allows you to clamp and seal up heavy armors of your enemies, raising their Penalty by -2. This level of Earth can be used to attack with a +3 bonus, and provide +3 resistance to Earth.</p>
+            <p><h4>Level 8</h4>Your spells may now transmute softer Earth into dense metal such as lead or tungsten. You may now walk though solid stone as your normal Speed, with the bonus of being unhindered by all but the most refined gems or Shard. This level of Earth can be used to attack with a +3 bonus.</p>
+            <p><h4>Level 9</h4>Your spells may now transmute softer Earth into hard gems including solid diamond. This level of Earth can be used to attack with a +4 bonus, and provide immunity to your own Earth effects, and a +4 resistance to the Earth effects of others.</p>
+            <p><h4>Level 10</h4>Your spells have unlocked the secret similarities between Shard and hard gems. You may manipulate and even transmute softer Earth into Shard for as long as your Duration allows. You may apply a -2 penalty to Shard equipment. This level of Earth can be used to attack with a +5 bonus.</p>
+        </div>
     </div>
 
-    <div class="sheet-page sheet-air-sphere-info">
+    <div class="sheet-page sheet-air-sphere-info magic-info">
         <button type="action" name="act_magic-back"><img src="https://i.imgur.com/BfXz7nW.png"></button>
         <h2>Air sphere</h2>
+        <div class="magic-info-levels">
+            <p><h4>Level l</h4>Your spells can cause subtle changes to wind direction and power. While this isn't nearly enough to deal damage, it can be used to target the breath of a creature directly without the need for the Decay Sphere, essentially causing shortness of breath. This level of Air can be used to attack at a -1 penalty.</p>
+            <p><h4>Level 2</h4>Your spells may now cause more dramatic shifts in wind speed and direction. Direction can be changed up to 90 degrees, and breezes you kick up can blow away light objects like leaves, papers, and even harmful gasses. The level of Air can be used to attack at no penalty or bonus.</p>
+            <p><h4>Level 3</h4>You may now create and destroy small amounts of Air from nothing. By creating Air you may double the length of time you can hold your breath for as long as the Duration allows, or take single breaths for each use of the spell. You may also thin the air, halving the time others can hold their breath. This level of Air can be used to attack with a +1 bonus, and provide +1 resistance to Air.</p>
+            <p><h4>Level 4</h4>Your spells may now change wind direction in any way you please. You may form stable walls of air that totally block harmful gasses and even knock back smaller creatures and objects. Projectiles suffer a -1 penalty passing though such barriers. This level of Air can be used to attack with a +1 bonus.</p>
+            <p><h4>Level 5</h4>By uncreating or displacing air around a target, you can attempt to suffocate them, collapsing their lungs and holding them shut for as long as your Duration allows. You may also begin working with electricity, creating arcs of static discharge. This level of Air can be used to attack with a +2 bonus, and provide +2 resistance to Air.</p>
+            <p><h4>Level 6</h4>Your spells may now create more solid barriers of condensed air, causing projectiles to suffer a -2 penalty. You may also slowfall indefinitely, never suffering Strain from falls. This level of Air can be used to attack with a +2 bonus.</p>
+            <p><h4>Level 7</h4>You may now hold stable air underwater, pushing back all but the heaviest of water pressure and creating bubbles of relatively dry air. This also may be used to create vacuum auras which no air can pass though. This level of Air can be used to attack with a +3 bonus, and provide +3 resistance to Air.</p>
+            <p><h4>Level 8</h4>You may now fly at your normal Speed, and create barriers that give a -3 penalty to projectiles. Even creatures must overcome these condensed barriers with their Brawl or Endurance to pass through them. This level of Air can be used to attack with a +3 bonus.</p>
+            <p><h4>Level 9</h4>The intricacies of electricity reveal themselves to you. While you cannot create a true lightning bolt from nothing, an existing storm with the potential to create lightning can be made to offer one up in the location you desire. This level of Air can be used to attack with a +4 bonus, and provide immunity to your own Air effects, and a +4 resistance to the Air effects of others.</p>
+            <p><h4>Level 10</h4>You may now fly at twice your normal Speed. Barriers of condensed Air you create are now truly solid. Projectiles do not pass through them, no matter how well they were shot. Even large creatures will find them almost impassible without tremendous strength. You may also create bubbles of air in this manner that can resist the lowest depths of the ocean, or even outer space. This level of Air can be used to attack with a +5 bonus.</p>
+        </div>
     </div>
 
-    <div class="sheet-page sheet-water-sphere-info">
+    <div class="sheet-page sheet-water-sphere-info magic-info">
         <button type="action" name="act_magic-back"><img src="https://i.imgur.com/BfXz7nW.png"></button>
         <h2>Water sphere</h2>
+        <div class="magic-info-levels">
+            <p><h4>Level l</h4>You may change the flow of water in subtle ways, weakening or strengthening surface tension, and even shedding water off of a creature to dry it rapidly or keep it wet longer. While your control over surface tension isn't enough to walk on water at this stage, weakening it could cause a raft or rowboat to falter. This level of Water can be used to attack at a -1 penalty.</p>
+            <p><h4>Level 2</h4>You can begin siphoning moisture out of the air or from objects, dehydrating them. You do not have the level of control required to target specific parts of a creature, but it's more than enough to make it thirsty, or even cause damage. Conversely, you may sustain yourself or an ally as long as there are other sources of moisture to draw from. The level of Water can be used to attack at no penalty or bonus.</p>
+            <p><h4>Level 3</h4>Your spells may now create and destroy small amounts of water. This could be used to create water for sustenance, or to drench a target spontaneously. You may also cause ice to become more or less slippery, and rapidly evaporate standing water into fog. This level of Water can be used to attack with a +1 bonus, and provide +1 resistance to Water.</p>
+            <p><h4>Level 4</h4>Your control over the properties of water allows you to swim as fast as you normally could move on land. Weakening surface tension to more advanced levels allow you to take no damage from falling into water from any height. Even larger rowboats could be made to sink or resist rough waves. This level of Water can be used to attack with a +1 bonus.</p>
+            <p><h4>Level 5</h4>Your spells allow you to walk through solid ice at half your Speed. Beware, as this does not protect you from the cold, nor will you be able to breathe when submerged in ice. You may also strengthen surface tension of liquid water enough to walk on. This level of Water can be used to attack with a +2 bonus, and provide +2 resistance to Water.</p>
+            <p><h4>Level 6</h4>Your spells may now allow you to breathe underwater for a long as your Duration allows. A single use without any Duration is good for a single good breath, which is enough to reset your breath timer. This level of Water can be used to attack with a +2 bonus.</p>
+            <p><h4>Level 7</h4>Your spells can now suffocate creatures within thick fog by targeting its density. Such fog could easily be whipped up though other sources of water nearby, or even water you've created yourself. While you may only do this to as many creatures as your Expansion allows, they are instantly rendered unable to breathe and must start holding their breath. This level of Water can be used to attack with a +3 bonus, and provide +3 resistance to Water.</p>
+            <p><h4>Level 8</h4>Your spells now allow you to move at twice your normal Speed in water, at your normal Speed straight though ice, or at half your Speed rising in a thick blanket of fog. This level of Water can be used to attack with a +3 bonus.</p>
+            <p><h4>Level 9</h4>Your spells allow you to fly at your normal Speed in a thick blanket of fog. Your surface tension can be made hard as rock, immobilizing even large ships, or non-existent, sucking them down as if the water was no more or less dense than air. Of course, such effects may need the necessary Expansion to cover enough area to be effective. This level of Water can be used to attack with a +4 bonus, and provide immunity to your own Water effects, and a +4 resistance to the Water effects of others.</p>
+            <p><h4>Level 10</h4>Your spells allow you to totally resist the effects of pressure from being even in the furthest depths of the ocean. This level of Water can be used to attack with a +5 bonus.</p>
+        </div>
     </div>
 
-    <div class="sheet-page sheet-darkness-sphere-info">
+    <div class="sheet-page sheet-darkness-sphere-info magic-info">
         <button type="action" name="act_magic-back"><img src="https://i.imgur.com/BfXz7nW.png"></button>
         <h2>Darkness sphere</h2>
+        <div class="magic-info-levels">
+            <p><h4>Level l</h4>Your spells may alter the appearance of shadows in small ways. You can make light sources dim, and wrap shadows around yourself to hide in the shadow, providing +1 to sight-based Stealth in dark environments. This might even cause a penalty to Stealth in a well-lit environment, as the shadows will appear obviously supernatural. This applies to all further uses of Darkness to grant a bonus to Stealth. This level of Darkness cannot deal damage.</p>
+            <p><h4>Level 2</h4>You may now manipulate darkness in more dramatic ways. You can create illusions in darkness: Looming figures, flickers of movement. These illusions will disappear if a subject comes too close to them, and do not affect the physical world in any way. This level of Darkness can be used to attack with a -1 penalty.</p>
+            <p><h4>Level 3</h4>Your spells may now uncreate. Anything with an elemental potency 2 levels lower than your Darkness Sphere Level can be uncreated. This does not require any knowledge of the effected subject's Sphere, and does not require Duration to maintain. This is the most hideous use of the Darkness Sphere, and overuse of it has been known to attract Demons. You may of course use this to “create” Darkness from nothing. But at this level you are aware that there is no such thing. You are simply causing uncreation which appears as darkness. You may also gain a +2 to sight-based Stealth. This level of Darkness can be used to attack with a -1 penalty, and provide +1 resistance to Darkness.</p>
+            <p><h4>Level 4</h4>Your black illusions may now take more specific shapes such as people, or animals. While they no longer fade when observed closely, they appear glossy and black, obviously not real, though still frightening. This level of Darkness can be used to attack with no penalty or bonus.</p>
+            <p><h4>Level 5</h4>Your illusions may now cause supernatural fear without the use of the Mind Sphere. This fear can be resisted with Willpower OR Aura, unlike Mind, which must be resisted with Willpower alone. Those who fail can flee or remain paralyzed in fear for as long as your Duration allows. You may also grant yourself +3 to sight-based Stealth, becoming nearly black yourself, fading into the dark. This level of Darkness can be used to attack with a +1 bonus, and provide +2 resistance to Darkness.</p>
+            <p><h4>Level 6</h4>Your spells may now cause even more lifelike illusions, even crossing them into well-lit spaces. The detail and texture is almost perfect, but they are still unnaturally dark. This level of Darkness can be used to attack with a +1 bonus.</p>
+            <p><h4>Level 7</h4>Your spells may now attempt to blind a creature permanently, without the need for Duration, beyond natural repair. You may now choose weather a subject flees or is paralyzed in fear when failing vs your fear effect. You may even choose what direction they run, as they cannot see where they are going as you show them their darkest fears. This level of Darkness can be used to attack with a +2 bonus, and provide +3 resistance to Darkness.</p>
+            <p><h4>Level 8</h4>The darkness you “create” from nothing is now totally immune and impenetrable to supernatural Light lower than this level. This can be used to shield against such effects as well. The Darkness you wrap around yourself for the purposes of Stealth perfectly melds you into any shadow, but is revealed if you are exposed to too much light as you appear to be an unearthly shadow yourself. This pseudo-invisibility makes you totally undetectable via sight, and grants a +1 to all other Stealth situations. This level of Darkness can be used to attack with a +2 bonus</p>
+            <p><h4>Level 9</h4>Your illusions may now give off subtle color, faint sounds, and even smells. They never shatter under scrutiny, though especially in light they are still revealed to be unreal. This level of Darkness can be used to attack with a +3 bonus, and provide immunity to your own Darkness effects, and a +4 resistance to the Darkness effects of others.</p>
+            <p><h4>Level 10</h4>You have looked into the heart of the Void, and you are not afraid. Those who fail your fear effects may now be made to forego their own self-preservation: lying down before you to await their destruction, throwing themselves off of buildings to escape their doom, etc. Your illusions are perfect in their detail, and do not break or even revealed as unreal on contact. They are real beings of shadow and uncreation. Essentially minor Demons of your own making. This level of Darkness can be used to attack with a +4 bonus.</p>
+        </div>
     </div>
 
-    <div class="sheet-page sheet-light-sphere-info">
+    <div class="sheet-page sheet-light-sphere-info magic-info">
         <button type="action" name="act_magic-back"><img src="https://i.imgur.com/BfXz7nW.png"></button>
         <h2>Light sphere</h2>
+        <div class="magic-info-levels">
+            <p><h4>Level l</h4>Your spells may alter light to a small degree. You may bend it around corners, condense it into a mild magnification lens, or even change its color or intensity in subtle ways. This level of Light cannot cause damage.</p>
+            <p><h4>Level 2</h4>Your spells may now warp light into certain patterns, forming illusions. It can change the color of an object, cause the object to appear bent, or displaced, and even change its apparent texture. While close to being able to cause a bonus in combat, this level cannot actually obscure a person enough to misdirect normal attacks. It can however grant a stealth bonus of +1 based on sight via camouflage. This level of Light can be used to attack with a -1 penalty.</p>
+            <p><h4>Level 3</h4>Your spells may now create small amounts of Light from nothing. You may now form mirrors either opaque or transparent that reflect light in any direction, allowing you to project around corners more accurately than you normally would. Your illusions become more detailed. Objects can give off their own light, not warping it from other sources. Details such as more refined textures or an altering of shape can make illusions much more realistic. At this level, a +1 bonus to resist physical attacks can be applied due to a distortion effect. This level of Light can be used to attack with a -1 penalty, and provide +1 resistance to Light.</p>
+            <p><h4>Level 4</h4>Your spells may now create more convincing camouflage able to grant a +2 to Stealth based on sight. You may also attempt to blind creatures who are sensitive to Light, or have become accustomed to a dark environment. This blindness only lasts as long as your Duration allows. This level of Light can be used to attack with no penalty or bonus.</p>
+            <p><h4>Level 5</h4>Your spells may now create convincing illusions that show more levels of detail from memory. Close inspection will still reveal imperfections and unnerving strangeness. Using your ability to warp and displace images may also raise the bonus you gain against physical attacks to +2. This level of Light can be used to attack with a +1 bonus, and provide +2 resistance to Light.</p>
+            <p><h4>Level 6</h4>Your spells may now start fires by concentrating light on a focused point. It is important to note that this has generally not been possible before this level, but could have been done with enough bonus successes. You may also attempt to blind creatures who are used to light environments. You may now turn partially invisible, granting you a +3 bonus to Stealth based on sight. This level of Light can be used to attack with a +1 bonus.</p>
+            <p><h4>Level 7</h4>Your spells may now attempt to permanently blind a creature, overloading and burning their eyes beyond normal repair. Duration is not required to maintain this blindness. Creatures who anticipated such an effect could shield their eyes using mundane means to reduce this effect to temporary blindness. Simply closing the eyes in not enough. Your distortion effects now become severely disorienting, allowing you to gain a +3 bonus vs physical attacks. This level of Light can be used to attack with a +2 bonus, and provide +3 resistance to Light.</p>
+            <p><h4>Level 8</h4>Your spells may now create illusions indistinguishable from the real thing, even on close inspection. Physical contact may still reveal imperfections, especially if you've made the object appear larger or smaller than it really is, or otherwise altered its apparent shape. You may now turn completely invisible. This utterly prevents you from being detected via sight. There are several other ways of telling if someone is there. You still gain +1 to all other forms of Stealth. Your ability to thwart the attacks of your enemies also stops here, as you can't get much better than invisible, with other illusory distractions. They will need some other way to know you are there to attempt to hit you at all. This level of Light can be used to attack with a +2 bonus.</p>
+            <p><h4>Level 9</h4>At this level you begin to peer into the realms of infrared and ultraviolet, and may now count as true sunlight. Your mirrors and lenses cause fires with ease, and threaten to blind even innocent bystanders. This level of Light can be used to attack with a +3 bonus, provide immunity to your own Light effects, and a +4 resistance to the Light effects of others.</p>
+            <p><h4>Level 10</h4>At this level, your illusions are flawless. Even on contact they will not be revealed as they will warp and twist to suit the position of any observer, even providing subtle physical sensations and sounds, which was never possible before. Using these effects, especially with the use of Expansion, you can create your own personal virtual reality, enforced on all who pass by. This level of Light can be used to attack with a +4 bonus.</p>
+        </div>
     </div>
 
-    <div class="sheet-page sheet-force-sphere-info">
+    <div class="sheet-page sheet-force-sphere-info magic-info">
         <button type="action" name="act_magic-back"><img src="https://i.imgur.com/BfXz7nW.png"></button>
         <h2>Force sphere</h2>
+        <div class="magic-info-levels">
+            <p><h4>Level l</h4>You may create 1 kilogram of Force. This level of Force cannot deal damage.</p>
+            <p><h4>Level 2</h4>You may create 5 kilograms of Force. You may begin creating sounds. These sounds are a little off, perhaps tinny, or pitched strangely. This level of Force can be used to attack with a -1 penalty.</p>
+            <p><h4>Level 3</h4>You may create 10 kilograms of Force. You may begin altering the friction of objects, making them slippery or clingy. This is enough to grant a penalty or bonus of 1 to most physical tasks. This level of Force can be used to attack with a -1 penalty, and provide a +1 bonus to resist Force and Physical attacks.</p>
+            <p><h4>Level 4</h4>You may create 20 kilograms of Force. You may begin working with gravity. You may fall twice as far as your Agility would allow, or halve the distance of enemies. You may also create more detailed and convincing sounds, taking a familiar ear to tell the difference. This level of Force can be used to attack with no penalty or bonus.</p>
+            <p><h4>Level 5</h4>You may create 50 kilograms of Force. Your alteration of friction may now grant a penalty or bonus of 2 to most physical tasks. This level of Force can be used to attack with a +1 bonus, and provide +2 resistance to Force and Physical attacks.</p>
+            <p><h4>Level 6</h4>You may create 80 kilograms of Force. You may now slowfall indefinitely, never taking any Strain from a fall so long as this effect is active. You may also perfectly mimic any sound you've heard before. This level of Force can be used to attack with a +1 bonus.</p>
+            <p><h4>Level 7</h4>You may create 150 kilograms of Force. Your alteration of friction may now grant a penalty or bonus of 3 to most physical tasks. This level of Force can be used to attack with a +2 bonus, and provide +3 resistance to Force and Physical attacks.</p>
+            <p><h4>Level 8</h4>You may create 150 kilograms of Force. Your alteration of friction may now grant a penalty or bonus of 3 to most physical tasks. This level of Force can be used to attack with a +2 bonus, and provide +3 resistance to Force and Physical attacks.</p>
+            <p><h4>Level 9</h4>You may create 400 kilograms of Force. You may now create a friction aura so potent that movement becomes impossible, and all fall prone, comically slipping down even shallow inclines. This level of Force can be used to attack with a +3 bonus, and provide immunity to your own Force effects, and a +4 resistance to the Force effects and Physical attacks of others.</p>
+            <p><h4>Level 10</h4>You may create 600 kilograms of Force. You may now fly at twice your normal Speed. You may now reverse gravity, sending creatures and objects falling straight up as if they had just fallen off a ledge. This continues for as long as your Duration will allow, and of course can be cut tragically short at any time you wish, sending these objects plummeting back down. You might even be able to whip up a secondary effect to speed their journey. This level of Force can be used to attack with a +4 bonus.</p>
+        </div>
     </div>
 
-    <div class="sheet-page sheet-cold-sphere-info">
+    <div class="sheet-page sheet-cold-sphere-info magic-info">
         <button type="action" name="act_magic-back"><img src="https://i.imgur.com/BfXz7nW.png"></button>
         <h2>Cold sphere</h2>
+        <div class="magic-info-levels">
+            <p><h4>Level l</h4>Your spells may lower existing Cold to a small degree, and make it flow into warmer spaces and subjects. In warm environments it is difficult to work with. You may have to wait until night to find any real Cold to manipulate. This level of Cold can be used to attack at a -1 penalty.  </p>
+            <p><h4>Level 2</h4>Your spells may manipulate existing Cold with greater control. This allows you to condense Cold into pockets and carry it with you for as long as your Duration allows. These pockets can grant you a +1 to Endurance to resist a hot environment. The level of Cold can be used to attack at no penalty or bonus.</p>
+            <p><h4>Level 3</h4>Your spells may now create Cold from nothing. Even in a warm environment you can lower the temperature to just below freezing, giving you something to work with for a separate effect. This level of Cold can be used to attack with a +1 bonus, and provide +1 resistance to Cold.</p>
+            <p><h4>Level 4</h4>Your spells may now seep into non-magical flame, making the very fire cooler, potentially even putting out the coals. This level of control allows you to grant a +2 to Endurance against hot environments. This level of Cold can be used to attack with a +1 bonus.</p>
+            <p><h4>Level 5</h4>Your spells may now chill metal to such a degree that it becomes painful to hold even with a gloved hand. Those who fail the Aura roll to resist this spell may opt to drop weapons or other objects to avoid damage. Otherwise, they must overcome the same difficulty with Willpower to keep hold of their tools. Even if they succeed this, they are still Strained and Wounded as if they have been struck by your damaging effect. You could also do this to metal armor, but the effect would be no different than a standard damaging effect. This level of Cold can be used to attack with a +2 bonus, and provide +2 resistance to Cold.</p>
+            <p><h4>Level 6</h4>Your spells may now reliably freeze the surface of water enough to walk on. As you freeze it, you may also choose how slippery it is. You may also grant +3 to Endurance against hot environments. This level of Cold can be used to attack with a +2 bonus.</p>
+            <p><h4>Level 7</h4>Your spells may now snap-freeze objects in warm environments. Trees can be made to explode due to the density of the water inside them expanding rapidly. This throws shrapnel at damaging speeds for a least 4 meters. Other things filled with compressed water will have a similar effect if there is enough material around them to throw. Before you get any nasty ideas about doing that to a person, that would require 7 Decay Sphere in addition to this effect. This level of Cold can be used to attack with a +3 bonus, and provide +3 resistance to Cold.</p>
+            <p><h4>Level 8</h4>Your spells may now condense the very air, making it appear to sink in a foggy blanket along the ground. You may now grant total immunity to hot environments. Even magical fire can be snuffed out bellow this potency level when it hits your condensed air. This level of Cold can be used to attack with a +3 bonus.</p>
+            <p><h4>Level 9</h4>Your spells may now liquefy the air, making nitrogen and oxygen rain. Setting up a stable aura of this effect with Duration and Expansion can create a pocket of extremely thin air that will suffocate most creatures on top of the already blood-freezing temperatures. This level of Cold can be used to attack with a +4 bonus, and provide immunity to your own Cold effects, and a +4 resistance to the Cold effects of others.</p>
+            <p><h4>Level 10</h4>Your spells may now start freezing your liquid air. You could snap an area and watch as crystals of nitrogen fall to the ground, sizzling and boiling as if they sat in a hot pan. This level of Cold can be used to attack with a +5 bonus.</p>
+        </div>
     </div>
 
-    <div class="sheet-page sheet-healing-sphere-info">
+    <div class="sheet-page sheet-healing-sphere-info magic-info">
         <button type="action" name="act_magic-back"><img src="https://i.imgur.com/BfXz7nW.png"></button>
         <h2>Healing sphere</h2>
+        <div class="magic-info-levels">
+            <p><h4>Level l</h4>You may restore 1 point of Strain.</p>
+            <p><h4>Level 2</h4>You may restore 2 point of Strain.</p>
+            <p><h4>Level 3</h4>You may allow a character another chance to resist Defeat for as long as your Duration allows. You may remove common diseases.</p>
+            <p><h4>Level 4</h4>You may restore 3 points of Strain. You may remove basic poisons.</p>
+            <p><h4>Level 5</h4>You may remove non-magical loss of senses</p>
+            <p><h4>Level 6</h4>You may restore 4 points of Strain. You may remove basic curses, or complex diseases.</p>
+            <p><h4>Level 7</h4>You may remove complex poisons.</p>
+            <p><h4>Level 8</h4>You may restore 5 points of Strain. You may remove a Scar or halve the severity of a mutation.</p>
+            <p><h4>Level 9</h4>You may remove magical loss of senses, or magical diseases</p>
+            <p><h4>Level 10</h4>You may restore 6 points of Strain. You may restore life to those who have died within ten minutes.</p>
+        </div>
     </div>
 
-    <div class="sheet-page sheet-decay-sphere-info">
+    <div class="sheet-page sheet-decay-sphere-info magic-info">
         <button type="action" name="act_magic-back"><img src="https://i.imgur.com/BfXz7nW.png"></button>
         <h2>Decay sphere</h2>
+        <div class="magic-info-levels">
+            <p><h4>Level l</h4>Your spells can intensify common illnesses, making them last longer. You can also cause corpses, dead plants, and food to rot at twice the rate they normally would. Duration is not required to keep the spell active, although would still be required to delay, or trigger the effect. This level of Decay cannot be used to attack.</p>
+            <p><h4>Level 2</h4>Your spells can cause common illnesses, invoking minor penalties after a natural gestation time. This level of Decay may be used to attack at a -1 penalty.</p>
+            <p><h4>Level 3</h4>Your spells can inflict common illnesses instantaneously, immediately invoking penalties upon the subject. Your spells may cause damage equal to your opposed successes. You may also cause corpses, dead plants, and food to rot into a pile of oily dirt in a matter of seconds. This level of Decay may be used to attack at a -1 penalty. You may also grant an ally +1 to defend against Decay.</p>
+            <p><h4>Level 4</h4>Your spells can intensify severe illnesses, making them last longer. This level of Decay may be used to attack at no penalty or bonus.</p>
+            <p><h4>Level 5</h4>Your spells can cause severe illness, invoking major penalties after a natural gestation time. You may also take control of mindless undead. The undead roll the Willpower of its creator in defense. Undead created by Gods cannot be taken control over. This level of Decay may be used to attack at a +1 bonus.</p>
+            <p><h4>Level 6</h4>Your spells can inflict severe illnesses instantaneously, immediately invoking penalties upon a subject. Your spells may also create mindless undead from the corpses of species your size and smaller. These will follow basic commands with half the skill they had in life. You cannot have more serving you than your expansion will allow, even over multiple spells. They also may not venture further from you than your Projection would allow or remain functional longer than your duration would allow. For example, with no duration, a corpse could lurch to life, take a single action, then drop back to the floor. This level of Decay may be used to attack at a +1 bonus. You may also grant an ally +2 to defend against Decay.</p>
+            <p><h4>Level 7</h4>Your spells can intensify hideous illnesses, making them last longer. This level of Decay may be used to attack at a +2 bonus.</p>
+            <p><h4>Level 8</h4>Your spells can cause hideous illnesses, invoking crippling penalties after a natural gestation time. You may also create horrors from the corpses of many creatures, or creatures up to four times your size. The beast has all the skills it had in life, although cannot use any magic. It is semi-intelligent and must be trained carefully to perform tasks. The caster has the ability to instantly kill this creature with a simple failsafe spell that takes only a single Round to complete. The same limitations on expansion, projection, and duration apply to these horrors as with mindless undead. This level of Decay may be used to attack at a +2 bonus.</p>
+            <p><h4>Level 9</h4>Your spells can inflict hideous illnesses instantaneously, immediately invoking penalties upon a subject. This level of Decay may be used to attack at a +3 bonus. You may also grant an ally immunity to your Decay spells, as well as +3 against other sources of Decay.</p>
+            <p><h4>Level 10</h4>Your spells may disrupt the internal processes of living things, instantly killing them with no apparent cause. This level of Decay may be used to attack at a +4 bonus. Undead you create are no longer bound by any Projection or Duration limitations. Expansion still determines the amount that can serve you at once.</p>
+        </div>
     </div>
 
-    <div class="sheet-page sheet-metamorphosis-sphere-info">
+    <div class="sheet-page sheet-metamorphosis-sphere-info magic-info">
         <button type="action" name="act_magic-back"><img src="https://i.imgur.com/BfXz7nW.png"></button>
         <h2>Metamorphosis sphere</h2>
+        <div class="magic-info-levels">
+            <p><h4>Level l</h4>Your spells can cause discomfort or pleasure. You can also make subtle changes in a creature's appearance such as lighter or darker skin or hair.</p>
+            <p><h4>Level 2</h4>Your spells can cause moderate pain or intense pleasure. You can give yourself or another subject a mild feature like hair growth, facial changes, fangs, scales, or small horns. These are not significant enough to give statistical bonuses. You may also heal 1 Strain while changing.</p>
+            <p><h4>Level 3</h4>Your spells can cause intense pain. You can give yourself or others more defined features like claws, muzzles, horns, fur, or improved senses. These changes can grant a +1 to Brawl, Endurance, Agility, or Perception. You may now create basic fleshy material from nothing such as clumps of sinew, or shards of bone.</p>
+            <p><h4>Level 4</h4>Your spells can transform you into creatures that are roughly your size. These changes can grant Natural Abilities such as water breathing, or the ability to glide on wings, slowing a fall. You may also heal 2 Strain while changing.</p>
+            <p><h4>Level 5</h4>Your spells can Transform others into creatures roughly their size. These changes can grant a +2 to Brawl, Endurance, Agility, or Perception and grant Natural Abilities. You may now create basic creatures from nothing such as mice, crabs, or insects. It takes you 3 Rounds to coax them into life, otherwise they are simply dead bodies.</p>
+            <p><h4>Level 6</h4>Your spells can transform you into creature's half or double your size. These changes can grant any natural ability you have observed a creature preform. This does not include God-Given abilities such as the ability to breathe fire. You may also heal 3 Strain while changing.</p>
+            <p><h4>Level 7</h4>Your spells can transform others into creature's half or double their size. You also no longer need to have seen the creature before. These changes can grant +3 to Brawl, Endurance, Agility, or Perception and grant any natural ability. This does not include God-Given abilities such as the ability to breathe fire. You may now create common lifeforms from nothing such as dogs, deer, or large birds.  </p>
+            <p><h4>Level 8</h4>Your spells can transform you into creatures as small as a common insect. You may also heal 4 Strain while changing.</p>
+            <p><h4>Level 9</h4>Your spells can transform others into creatures as small as a common insect, or yourself and others into creatures four times your size. These changes can grant +4 to Brawl, Endurance, Agility, or Perception and grant any natural ability. This can include God-Given abilities. You may now create humanoid creatures from nothing. They have the minds of children when they awaken.</p>
+            <p><h4>Level 10</h4>Your spells may freely add and remove features, mimic any biological characteristic, and apply them to yourself or others. These changes can grant +5 to Brawl, Endurance, Agility, or Perception and grant any natural ability. This can include God-Given abilities. You may also heal 5 Strain while changing. You may create any creature you've interacted with before from nothing.</p>
+        </div>
     </div>
 
-    <div class="sheet-page sheet-flora-sphere-info">
+    <div class="sheet-page sheet-flora-sphere-info magic-info">
         <button type="action" name="act_magic-back"><img src="https://i.imgur.com/BfXz7nW.png"></button>
         <h2>Flora sphere</h2>
+        <div class="magic-info-levels">
+            <div class="magic-info-levels">
+                <p>This Sphere functions very similarly to Metamorphosis, but with plants and trees instead of flesh and bone. To turn one into the other requires the appropriate Sphere Levels in both, as it is a Transmutation.</p>
+                <button type="action" name="act_metamorphosis-sphere-info">See Metamorphosys</button>
+            </div>
+        </div>
     </div>
 
-    <div class="sheet-page sheet-duration-sphere-info">
+    <div class="sheet-page sheet-duration-sphere-info magic-info">
         <button type="action" name="act_magic-back"><img src="https://i.imgur.com/BfXz7nW.png"></button>
         <h2>Duration sphere</h2>
+        <div class="magic-info-levels">
+            <p><h4>Level l</h4>Your spells last up to 3 rounds, or 15 seconds.</p>
+            <p><h4>Level 2</h4>your spells last up to 6 rounds, or 30 seconds.</p>
+            <p><h4>Level 3</h4>Your spells last up to five minutes.</p>
+            <p><h4>Level 4</h4>Your spells last up to ten minutes. You can cast your perception backwards or forwards in time by 30 seconds.</p>
+            <p><h4>Level 5</h4>Your spells last up to twenty minutes. You can cast your perception backwards or forwards in time by a minute.</p>
+            <p><h4>Level 6</h4>Your spells last up to an hour. You can cast your perception backwards or forwards in time by five minutes.</p>
+            <p><h4>Level 7</h4>Your spells last up to twelve hours. you can cast your perception backwards or forwards in time by ten minutes. You can travel through time by 30 seconds.</p>
+            <p><h4>Level 8</h4>Your spells last up to a day. you can cast your perception backwards or forwards in time by twenty minutes. You can travel through time by a minute.</p>
+            <p><h4>Level 9</h4>Your spells last up to a week. You can cast your perception backwards or forwards in time by an hour. You can travel through time by five minutes.</p>
+            <p><h4>Level 10</h4>Your spells last up to a month. You can cast your perception backwards or forwards in time by twelve hours. You can travel though time by ten minutes. You may conduct a week-long ritual to make a spell permanent. Time spent in this ritual does not stack with other effects in the spell, which must be cast separately.</p>
+        </div>
     </div>
 
-    <div class="sheet-page sheet-expansion-sphere-info">
+    <div class="sheet-page sheet-expansion-sphere-info magic-info">
         <button type="action" name="act_magic-back"><img src="https://i.imgur.com/BfXz7nW.png"></button>
         <h2>Expansion sphere</h2>
+        <div class="magic-info-levels">
+            <p><h4>Level l</h4>Your spells can affect two targets at once, or a 3-meter diameter spherical area.</p>
+            <p><h4>Level 2</h4>Your spells can affect three targets at once, or a 6-meter diameter spherical area.</p>
+            <p><h4>Level 3</h4>Your spells can affect four targets at once, or a 10-meter diameter spherical area.</p>
+            <p><h4>Level 4</h4>Your spells can affect five targets at once, or a 15-meter diameter spherical area. You may exclude 1 target from the effect.</p>
+            <p><h4>Level 5</h4>Your spells can affect 6 targets at once, or a 20-meter diameter spherical area.</p>
+            <p><h4>Level 6</h4>Your spells can affect 10 targets at once, or a 25-meter diameter spherical area. You may exclude 2 targets from the effect.</p>
+            <p><h4>Level 7</h4>Your spells can affect 15 targets at once, or a 40-meter diameter spherical area.</p>
+            <p><h4>Level 8</h4>Your spells can affect 20 targets at once, or a 75-meter diameter spherical area. You may exclude 3 targets from the effect.</p>
+            <p><h4>Level 9</h4>your spells can affect 40 targets at once, or a 150-meter diameter spherical area.</p>
+            <p><h4>Level 10</h4>Your spells can affect 75 targets at once, or a 250-meter diameter spherical area. You may exclude 5 targets from the effect.</p>
+        </div>
     </div>
 
-    <div class="sheet-page sheet-projection-sphere-info">
+    <div class="sheet-page sheet-projection-sphere-info magic-info">
         <button type="action" name="act_magic-back"><img src="https://i.imgur.com/BfXz7nW.png"></button>
         <h2>Projection sphere</h2>
+        <div class="magic-info-levels">
+            <p><h4>Level l</h4>Your magic can affect subjects up to 2 meters away from you. You must be able to see them, or at least have a clear line between them and yourself.</p>
+            <p><h4>Level 2</h4>Your magic can affect subjects up to 5 meters away from you.</p>
+            <p><h4>Level 3</h4>Your magic can affect subjects up to 10 meters away from you.</p>
+            <p><h4>Level 4</h4>Your magic can affect subjects up to 20 meters away from you. You can translocate inanimate objects the size of a single coin.</p>
+            <p><h4>Level 5</h4>Your magic can affect subjects up to 30 meters away from you. You can affect subjects you cannot see or have clear line to up to 5 meters away. You must have some other means of knowing they are there. You can translocate inanimate objects the size of a human fist and living objects the size of a single coin.</p>
+            <p><h4>Level 6</h4>Your magic can affect subjects up to 50 meters away from you. You can affect subjects you cannot see or have clear line to up to 10 meters away. You can translocate inanimate objects a spherical meter in volume and living objects the size of a human fist.</p>
+            <p><h4>Level 7</h4>Your magic can affect subjects up to 100 meters away from you. You can affect subjects you cannot see or have clear line to up to 20 meters away. You can translocate inanimate objects the size of a man and living objects the size of a spherical meter in volume.</p>
+            <p><h4>Level 8</h4>Your magic can affect subjects up to 200 meters away from you. You can affect subjects you cannot see or have clear line to up to 30 meters away. You no longer need a way of knowing the target is there. You can translocate inanimate objects the size of a cart and living objects the size of a man.</p>
+            <p><h4>Level 9</h4>Your magic can affect subjects up to 300 meters away from you. You can affect subjects you cannot see or have clear line to up to 50 meters away. You can translocate inanimate objects the size of a hut and living objects the size of a large cart.</p>
+            <p><h4>Level 10</h4>Your magic can affect anything you can see. You can affect subjects you cannot see or have clear line to up to 100 meters away. You can Translocate inanimate objects the size of a two-story building and living objects the size of a hut.</p>
+        </div>
     </div>
 
-    <div class="sheet-page sheet-mind-sphere-info">
+    <div class="sheet-page sheet-mind-sphere-info magic-info">
         <button type="action" name="act_magic-back"><img src="https://i.imgur.com/BfXz7nW.png"></button>
         <h2>Mind sphere</h2>
+        <p><h4>Level l</h4>Your spells can share emotion, and convey simple ideas</p>
+        <p><h4>Level 2</h4>Your spells can cause rises in emotion, and read surface thoughts</p>
+        <p><h4>Level 3</h4>Your spells can allow you to speak telepathically in any spoken language you know. You may also make animals take actions that they would not find unusual.</p>
+        <p><h4>Level 4</h4>Your spells can make an intelligent creature to take an action that it would not be out of the ordinary for it. You may also force your mind to instantly memorize its current stimuli, which can be extended with Duration.</p>
+        <p><h4>Level 5</h4>Your spells can communicate telepathically without the need for language, and allow you to observe dreams.</p>
+        <p><h4>Level 6</h4>Your spells can read deeper thoughts, and determine lies with perfect accuracy.</p>
+        <p><h4>Level 7</h4>Your spells can make a thinking creature take an action that may seem strange to it. You may also mentally enter a dream, and change details about it.</p>
+        <p><h4>Level 8</h4>Your spells can make a thinking creature take an action that it would normally protest doing.</p>
+        <p><h4>Level 9</h4>Your spells can make a thinking creature take an action that it would rather be tortured than do. You may also mentally enter a dream, and completely take control of it.</p>
+        <p><h4>Level 10</h4>Your spells can make a thinking creature submit to your unspoken authority without question.</p>
     </div>
 
-    <div class="sheet-page sheet-summoning-sphere-info">
+    <div class="sheet-page sheet-summoning-sphere-info magic-info">
         <button type="action" name="act_magic-back"><img src="https://i.imgur.com/BfXz7nW.png"></button>
         <h2>Summoning sphere</h2>
+        <div class="magic-info-levels">
+            <p><h4>Level l</h4>You may extend your senses into nearby weaknesses in the dimensions. This allows you to detect the presence of nearby entities and make yourself known to them. You cannot communicate with them in any effective way and are largely at their mercy if they have ways of effecting physical space.</p>
+            <p><h4>Level 2</h4>You may speak in any language you know into otherworlds, allowing you to plead, pray, and bargain with entities. If they choose to listen, and what they do afterwards is totally up to them, often displaying little to no interest in helping mortals.</p>
+            <p><h4>Level 3</h4>You may prepare rituals that can transfer weak entities into the physical world, or vice versa such as mice, bugs, or fish. These entities, if pleased with your behavior and offerings, may preform simple services for you. You may also transfer insignificant items to and from the otherworld such as daggers, small pouches of coin, or other objects that other Spheres you have would govern should they be incorporated into the spell at the proper level. They will only exist in the physical world for as long as your duration sphere allows.</p>
+            <p><h4>Level 4</h4>You may prepare a protection circle to defend against, trap, paralyze, or cause pain to weak entities of a particular subtype. If the creature is outside the circle, they are not affected by it. If they touch it from the outside, they may be repelled, or stunned. None of these effects will kill them. Circles of this sort are often used as an insurance policy and offer your demands a bit more teeth.</p>
+            <p><h4>Level 5</h4>You may banish and repel weak entities. Your spells may also harm weak entities and allow mundane weapons to harm them as well.</p>
+            <p><h4>Level 6</h4>You may prepare rituals that can summon moderately powerful entities, or vice versa such as wolves, livestock, or trees. Your circles and banishment in previous levels do not work on these entities, and they are not as easily appeased by simple prayer and offerings. They may demand service of you before the tables can be turned. You may also transfer significant items to and from the otherworld such as medium armors, gems, lower-level Shards, or other objects that other Spheres you have would govern should they be incorporated into the spell at the proper level.</p>
+            <p><h4>Level 7</h4>You may prepare a protection circle to defend against moderately powerful entities of a particular subtype.</p>
+            <p><h4>Level 8</h4>You may banish and repel moderately powerful entities. Your spells may also harm moderate entities and allow mundane weapons to harm them as well.</p>
+            <p><h4>Level 9</h4>You may prepare a ritual to summon powerful entities, or vice versa such as humanoids, and weak magical creatures. These entities will see a direct summons as an insult and will not hesitate to punish you for your arrogance. You may find yourself serving them more than they serve you to earn their respect. You may also transfer potent items to and from the otherworld such as wagons, powerful Shards, or other objects that other Spheres you have would govern should they be incorporated into the spell at the proper level. </p>
+            <p><h4>Level 10</h4>You may prepare a protection circle to defend against powerful entities of a particular subtype. You may undertake a week-long ritual to banish a single powerful entity, allow your spells to harm it, or weapons to harm it. Keep in mind some entities are beyond even this level, and rarely communicate with mortals directly. Mortal magic has a lot of difficulty affecting them at all.</p>
+        </div>
     </div>
 
 
@@ -517,12 +907,31 @@
 <rolltemplate class="sheet-rolltemplate-redrains">
     <h3>{{name}}</h3>
     <div class="sheet-results">
-        <h4>Sucesses: {{computed::roll1}}</h4>
+        <h4>Sucesses: {{computed::skillRoll}}</h4>
+    </div>
+</rolltemplate>
+
+<rolltemplate class="sheet-rolltemplate-redrains-defense">
+    <h3>{{name}}</h3>
+    <div class="sheet-results">
+        <h4>Sucesses: {{computed::defense}}</h4>
+    </div>
+</rolltemplate>
+
+<rolltemplate class="sheet-rolltemplate-redrains-attack">
+    <h3>{{weaponName}}</h3>
+    <div class="sheet-results">
+        <h4>Sucesses: {{computed::attack}}</h4>
+        <h4>Pen: {{computed::weaponPen}}</h4>
     </div>
 </rolltemplate>
 
 <rolltemplate class="sheet-rolltemplate-redrains-magic">
-    <p><b>{{sphereCount}}</b> magic spheres were invoked.</p>
+    <hr>
+    <p>Level {{computed::spellLevel}} spell has been Cast</p>
+    {{#rollGreater() computed::difficultyMod 0}}
+        <p>The spell difficulty was reduced by {{computed::difficultyMod}}</p>
+    {{/rollGreater() computed::difficultyMod 0}} 
     <div class="sheet-results">
         <h4>Spellweave: {{computed::spellweave}}</h4>
         <h4>Aura: {{computed::aura}}</h4>
@@ -530,10 +939,10 @@
     {{#rollLess() computed::spellweave computed::rollTarget}}
         <p>The spell failed</p>
     {{/rollLess() computed::spellweave computed::rollTarget}}
-    {{#rollGreater() computed::spellweave computed::rollTarget}}
+    {{#rollBetween() computed::spellweave computed::rollTarget 99}}
         <p>The spell was a success!</p>
-        <p>The spell strained the caster by <b>{{computed::casterStrain}}</b></p>
-    {{/rollGreater() computed::spellweave computed::rollTarget}}
+        <p>It caused <b>{{computed::casterStrain}}</b> strain to the caster</p>
+    {{/rollBetween() computed::spellweave computed::rollTarget 99}}
 </rolltemplate>
 
 <script type="text/worker">
@@ -543,11 +952,22 @@
     "fire-sphere-info", "earth-sphere-info", "air-sphere-info","water-sphere-info",
     "darkness-sphere-info", "light-sphere-info", "force-sphere-info", "cold-sphere-info", "flora-sphere-info",
     "healing-sphere-info", "decay-sphere-info", "metamorphosis-sphere-info", "duration-sphere-info",
-    "expansion-sphere-info", "projection-sphere-info", "mind-sphere-info", "summoning-sphere-info"];
+    "expansion-sphere-info", "projection-sphere-info", "mind-sphere-info", "summoning-sphere-info",
+    "rotes-list"];
     tabButtonList.forEach(button => {
         on(`clicked:${button}`, function() {
             setAttrs({
                 sheetTab: button
+            });
+        });
+    });
+
+    // Tab control for the magic sheet - save current tab in variable so the tab where user was is saved
+    const magicTabsButtonList = ["magic-rotes-grid","magic-grid"];
+    magicTabsButtonList.forEach(button => {
+        on(`clicked:${button}`, function() {
+            setAttrs({
+                sheetMagicTab: button
             });
         });
     });
@@ -569,17 +989,17 @@
 
     // Links to Magic Sphere images by magic potency
     const magicSphereImageList = {
-        0:  "https://i.imgur.com/MwSmZ5e.png",
-        1:  "https://i.imgur.com/tWzpZFK.png",
-        2:  "https://i.imgur.com/nzsqcoN.png",
-        3:  "https://i.imgur.com/KXbk6v4.png",
-        4:  "https://i.imgur.com/mQ4CfeJ.png",
-        5:  "https://i.imgur.com/o4XMv8X.png",
-        6:  "https://i.imgur.com/U8WnMjC.png",
-        7:  "https://i.imgur.com/tLSrMk5.png",
-        8:  "https://i.imgur.com/4vhY2cp.png",
-        9:  "https://i.imgur.com/B7cweiA.png",
-        10: "https://i.imgur.com/2BwJ5MM.png"
+        0:  "https://i.imgur.com/Dxq0bqf.png",
+        1:  "https://i.imgur.com/04ZHGIG.png",
+        2:  "https://i.imgur.com/j0DIcF0.png",
+        3:  "https://i.imgur.com/UyzapbY.png",
+        4:  "https://i.imgur.com/eV7fpTn.png",
+        5:  "https://i.imgur.com/lKgBQ5s.png",
+        6:  "https://i.imgur.com/34czMs1.png",
+        7:  "https://i.imgur.com/g9q1Jdv.png",
+        8:  "https://i.imgur.com/v8MOAPK.png",
+        9:  "https://i.imgur.com/dYutD0h.png",
+        10: "https://i.imgur.com/dYOji16.png"
     };
 
     // Set magic sphere images if variables are empty
@@ -616,7 +1036,7 @@
     const skillList = [
         "leadership", "persuasion", "intimidation", "insight", "deceit", "barter",  // Social
         "linguistics", "medicine", "mechanics", "investigation", "acumen",          // Intellect
-        "craft", "mele", "brawl", "marksman", "endurance", "stealth", "agility",    // Physique
+        "craft", "melee", "brawl", "marksman", "endurance", "stealth", "agility",    // Physique
         "art", "survival", "willpower", "spellweave", "perception", "aura", "feral" // Wisdom
     ];
 
@@ -626,7 +1046,7 @@
             const skillName = info.triggerName.substring('clicked:'.length);
             rollSkill(skillName);
         });
-    })
+    });
 
     //If each of the abilities change make sure they can't go below 0 or above potential
     skillList.forEach(skill => {
@@ -636,30 +1056,86 @@
             // Get skill grade variable name
             const skillGradeName = info.triggerName.toString();
             //Get variables
-            getAttrs([skillGradeName, skillName+"-potential"], function(values) {
+            getAttrs([skillGradeName, skillName+"-potential", "true-agility-grade"], function(values) {
                 var skillGrade = parseInt(values[skillGradeName]);
                 var skillPotential = parseInt(values[skillName+"-potential"]);
 
+                // Update true agility (agility accounting for armor penalty)
+                if(skillName == "agility"){
+                    computeTrueAgility();
+                }
+
+                /* Speed and initiative setters */
+                if(skillName == "agility" || skillName == "perception" || skillName == "insight"){
+                    computeSpeedInitiative();
+                }
+
                 // If skill grade is higher than potential, set it to potential. If it is lower than 1, set it to 1
                 if(skillGrade > skillPotential){
-                    setAttrs({ [skillGradeName]: skillPotential  });
+                    setAttrs({ [skillGradeName]: skillPotential });
                 } else if (skillGrade < 0){
-                    setAttrs({ [skillGradeName]: 0  });
+                    setAttrs({ [skillGradeName]: 0 });
                 }
-            })
+            });
         });
-    })
+    });
+
+
+    function computeSpeedInitiative(){
+        getAttrs(["true-agility-grade", "perception-grade", "insight-grade"], (values) => {
+            const agilityGrade = parseInt(values["true-agility-grade"]);
+            const perceptionGrade = parseInt(values["perception-grade"]);
+            const insightGrade = parseInt(values["insight-grade"]);
+
+            const speed = agilityGrade + 3;
+            const initiative = agilityGrade + perceptionGrade + insightGrade;
+            setAttrs({ 
+                "speed": speed,
+                "initiative": initiative
+            });
+        });
+    }
+
+    // Compute and update true agility (agility accounting for armor penalty)
+    function computeTrueAgility(){
+        getAttrs(["agility-grade", "total-armor-pen"], (values) => {
+            const agilityGrade = parseInt(values["agility-grade"]);
+            var armorPenalty = parseInt(values["total-armor-pen"]);
+            if(armorPenalty < 0){
+                armorPenalty = 0;
+            }
+            console.log("Armor Pen: " + armorPenalty);
+            var trueAgility = agilityGrade - armorPenalty;
+            if(trueAgility < 0){
+                trueAgility = 0;
+            };
+            setAttrs({"true-agility-grade": trueAgility})
+            computeSpeedInitiative();
+        });
+    }
 
     /*
      * Rolls any skill with the supplied skill name - checks for focuses and adds those accordingly.
      */
     function rollSkill(skillName){
         // Base roll macro for every skills (Capitalize 1st letter of name param for display purposes)
-        const rollFormula = "&{template:redrains} {{name="+skillName.charAt(0).toUpperCase() + skillName.slice(1)+"}} {{roll1=[[(@{"+skillName+"-grade}-@{strain})d6>4]]}}"
-        getAttrs([skillName+"-focuses", skillName+"-grade", "strain"], function(values) {
+        getAttrs([skillName+"-focuses", skillName+"-grade", "strain", "total-armor-pen"], function(values) {
             const focus = values[skillName+"-focuses"].toString();
+            var skillGrade = parseInt(values[skillName+"-grade"]);
 
-            //TODO: When wearing armor reduce agility, stealth and swimming endurance
+            var rollFormula = `&{template:redrains} {{name=${skillName.charAt(0).toUpperCase() + skillName.slice(1)}}} {{skillRoll=[[(${skillGrade}+?{${skillName.charAt(0).toUpperCase() + skillName.slice(1)} dice modifier|0}-@{strain}@armorPenPlaceholder)d6>4]]}}`
+
+            if(skillName == "agility" || skillName == "stealth"){
+                const totalArmorPen = parseInt(values["total-armor-pen"]);
+                rollFormula = rollFormula.replace("@armorPenPlaceholder", `-${totalArmorPen}`);
+            } else if (skillName == "endurance") {
+                const totalArmorPen = parseInt(values["total-armor-pen"]);
+                rollFormula = rollFormula.replace("@armorPenPlaceholder", `-?{Is this for purpose of swimming or marching?|No,0|Yes,${totalArmorPen}}`);
+            } else {
+                rollFormula = rollFormula.replace("@armorPenPlaceholder", "");
+            }
+
+            console.log(rollFormula);
 
             if(focus == ""){
                 //If there are no focuses there is no need to promt the user - just roll the basic formula
@@ -673,15 +1149,16 @@
                 const strain = parseInt(values["strain"]);
                 // If there is a focus we need to ask the user if the focus applies and how many times it applies (up to 2)
                 startRoll(rollFormula.replace("d6>4","d6>4 +?{Does your focus \""+focus+"\" apply?|No, 0|Yes - once, 1|Yes - twice, 2}"), (results) => {
-                    var sucesses = results.results.roll1.result
+                    var sucesses = results.results.skillRoll.result
+                    var skillUserInput = results.results.skillRoll.expression.replace(/\D+/g, ' ').trim().split(' ').map(e => parseInt(e))[1]; //Get the user input - second dice in dice expression
                     // If user has more sucesses than his maximum dice pool allows, then the number of sucessed becomes equal to dice pool
-                    const dicePool = grade - strain
+                    const dicePool = grade + skillUserInput - strain
                     if (sucesses > dicePool){
                         sucesses = dicePool;
                     }
                     finishRoll(
                         results.rollId, {
-                            roll1: sucesses
+                            skillRoll: sucesses
                         }
                     );
                 })
@@ -722,37 +1199,80 @@
         });
     });
 
+    // Okay, I know it is the lazy way to do it, just copyy paste code... you can fix it if you want
+    // Limit ritual days to a positive number    
+    on("change:magic-cast-ritual-days", (info) => {
+        getAttrs(["magic-cast-ritual-days"], function(values) {
+            var ritualDays = parseInt(values["magic-cast-ritual-days"]);
+            if(ritualDays < 0){
+                ritualDays = 0;
+                setAttrs({"magic-cast-ritual-days": ritualDays});
+            }
+        });
+    });
+
+    // Limit sphere levels to a positive number  
+    on("change:cast-sphere-count", (info) => {
+        getAttrs(["cast-sphere-count"], function(values) {
+            var sphereLevels = parseInt(values["cast-sphere-count"]);
+            if(sphereLevels < 0){
+                sphereLevels = 0;
+                setAttrs({"cast-sphere-count": sphereLevels});
+            }
+        });
+    });
+
+    // Limit the defence pen to a positive number  
+    on("change:enemy-pen", (info) => {
+        getAttrs(["enemy-pen"], function(values) {
+            var pen = parseInt(values["enemy-pen"]);
+            if(pen < 0){
+                pen = 0;
+                setAttrs({"enemy-pen": pen});
+            }
+        });
+    });
+
     on("clicked:cast-spell", (info) => {
-        console.log("Magic pew pew");
         getAttrs(["cast-sphere-count"], function(values) {
             rollSpell(values["cast-sphere-count"]);
         });
-        /*
-        setAttrs({"cast-sphere-count" : 0});
-        */
     })
 
     function rollSpell(sphereLevelCount){
         var castDifficulty = Math.floor(sphereLevelCount / 2);
 
-        getAttrs(["spellweave-grade", "spellweave-focuses", "aura-grade", "aura-focuses", "strain"], function(values) {
+        getAttrs(["spellweave-grade", "spellweave-focuses", "aura-grade", "aura-focuses", "strain", "magic-cast-ritual-length", "magic-cast-ritual-days", "magic-cast-difficulty-modifier"], function(values) {
             var spellweave = parseInt(values["spellweave-grade"]); 
             var spellweaveFocus = values["spellweave-focuses"]; 
             var aura = parseInt(values["aura-grade"]);
             var auraFocus = values["aura-focuses"];
             var strain = parseInt(values["strain"]);
+            var ritualMultiplier = parseFloat(values["magic-cast-ritual-length"]);
+            var ritualDaysAdded = parseInt(values["magic-cast-ritual-days"]);
+            var difficultyModifier = parseInt(values["magic-cast-difficulty-modifier"]);
 
-            let rollFormula = `&{template:redrains-magic} {{sphereCount=${sphereLevelCount}}} {{spellweave=[[(${spellweave}-${strain})d6>4 @FocusSpellweave ]]}} {{aura=[[(${aura}-${strain})d6>4 @FocusAura]]}} {{rollTarget=[[0d0]]}} {{casterStrain=[[0d0]]}}`;
+            console.log("Difficulty: " + castDifficulty + " - " + difficultyModifier);
+            console.log("strain: " + strain);
 
-            // Add focuses if user has them
+            castDifficulty = castDifficulty - difficultyModifier;
+
+            // Days long ritual has been cast (switching to hardcoded 3.5 because switch value 3.6 needed to be used to differenciate between the values to display the days input, so 3.5 is the correct multiplier there)
+            if(ritualMultiplier == 3.6){
+                ritualMultiplier = 3.5
+            }
+
+            let rollFormula = `&{template:redrains-magic} {{sphereCount=${sphereLevelCount}}} {{spellweave=[[(((${spellweave}+?{Spellweave dice modifier|0}-@{strain}) * ${ritualMultiplier}) + ${ritualDaysAdded})d6>4 @FocusSpellweave ]]}} {{aura=[[(${aura}+?{Aura dice modifier|0}-@{strain})d6>4 @FocusAura]]}} {{spellLevel=[[0d0]]}} {{rollTarget=[[0d0]]}} {{difficultyMod=[[0d0]]}} {{casterStrain=[[0d0]]}}`;
+
+            // Add focuses if user has them, or remove placeholders
             if(spellweaveFocus.length != 0){
-                rollFormula = rollFormula.replace("@FocusSpellweave","+?{Does your focus \""+spellweaveFocus+"\" apply?|No, 0|Yes - once, 1|Yes - twice, 2}")
+                rollFormula = rollFormula.replace("@FocusSpellweave","+?{Does your spellweave focus \""+spellweaveFocus+"\" apply?|No, 0|Yes - once, 1|Yes - twice, 2}")
             } else {
                 rollFormula = rollFormula.replace("@FocusSpellweave","")
             }
 
             if(auraFocus.length != 0){
-                rollFormula = rollFormula.replace("@FocusAura","+?{Does your focus \""+auraFocus+"\" apply?|No, 0|Yes - once, 1|Yes - twice, 2}")
+                rollFormula = rollFormula.replace("@FocusAura","+?{Does your aura focus \""+auraFocus+"\" apply?|No, 0|Yes - once, 1|Yes - twice, 2}")
             } else {
                 rollFormula = rollFormula.replace("@FocusAura","")
             }
@@ -760,47 +1280,273 @@
             console.log("Roll Formula: " + rollFormula);
 
             startRoll(rollFormula, (results) => {
-                var spellweaceSuccesses = results.results.spellweave.result;
+                var spellweaveSuccesses = results.results.spellweave.result;
                 var auraSuccesses = results.results.aura.result;
 
-                console.log("Spellweave result: " + spellweaceSuccesses);
-                console.log("Aura result: " + auraSuccesses);
+                // We need to round down the amount of dice rolled - but floor function is resolved AFTER the roll
+                // We need to get all of the numbers from spellweave formula, look at the first 3 (spellweave grade, user input bonus and strain)
+                // If total of those is odd AND the multiplier has a number after decimal point we know roll20 rounded up so we need to remove one dice
+                var spellweaveUserInput = results.results.spellweave.expression.replace(/\D+/g, ' ').trim().split(' ').map(e => parseInt(e))[1]; //Get the user input - second dice in dice expression
+
+                if(((spellweave + spellweaveUserInput - strain) * ritualMultiplier) % 1 != 0 ){
+                    console.log("Right most dice should be removed - the dice pool should have been rounded down, not up");
+                    var lastDiceRoll = results.results.spellweave.dice[results.results.spellweave.dice.length-1];
+                    // If the last dice is successful, remove success since the last tice should not have been there in the first place
+                    if(lastDiceRoll > 3){
+                        console.log("Last dice was a success. Removing success from result");
+                        spellweaveSuccesses = spellweaveSuccesses - 1;
+                    }
+                }
 
                 // If user has more sucesses than his maximum dice pool allows, then the number of sucessed becomes equal to dice pool
-                const spellweaveDicePool = spellweave - strain;
-                if (spellweaceSuccesses > spellweaveDicePool){
-                    spellweaceSuccesses = spellweaveDicePool;
+                const spellweaveDicePool = Math.floor((spellweave + spellweaveUserInput - strain) * ritualMultiplier) + ritualDaysAdded;
+                if (spellweaveSuccesses > spellweaveDicePool){
+                    spellweaveSuccesses = spellweaveDicePool;
                 }
-                const auraDicePool = aura - strain;
+
+                var auraUserAddedDice = results.results.aura.expression.replace(/\D+/g, ' ').trim().split(' ').map(e => parseInt(e))[1]; //Get the user input - second dice in dice expression
+                const auraDicePool = aura + auraUserAddedDice - strain;
                 if (auraSuccesses > auraDicePool){
                     auraSuccesses = auraDicePool;
                 }
-
-                console.log("Normalized Spellweave result: " + spellweaceSuccesses);
-                console.log("Normalized Aura result: " + auraSuccesses);
                 
                 let strainTaken = 0;
-
-                if(castDifficulty > auraSuccesses){
+                if(castDifficulty > auraSuccesses && spellweaveSuccesses >= castDifficulty){
                     strainTaken = castDifficulty - auraSuccesses
                 }
 
                 strain += strainTaken;
                 setAttrs({"strain" : strain});
-
                 finishRoll(
                     results.rollId, {
-                        spellweave: spellweaceSuccesses,
+                        spellweave: spellweaveSuccesses,
                         aura: auraSuccesses,
                         casterStrain: strainTaken,
-                        rollTarget: castDifficulty
+                        rollTarget: castDifficulty,
+                        difficultyMod: difficultyModifier,
+                        spellLevel: castDifficulty+difficultyModifier
                     }
                 );
 
-            })
+            });
+
+            // Zero out all cast attributes after roll
+            setAttrs({
+                "magic-cast-ritual-length" : 1,
+                "magic-cast-ritual-days": 0,
+                "cast-sphere-count": 0,
+                "magic-cast-difficulty-modifier": 0
+            });
         })
         
     }
 
+    on("clicked:repeating_rotes:fill-rote", function(info) {
+        getAttrs(["repeating_rotes_rote-levels", "show-rotes-clicked"], function(values) {
+            const roteLevels = parseInt(values["repeating_rotes_rote-levels"]);
+            setAttrs({
+                "magic-cast-ritual-length" : 1,
+                "magic-cast-ritual-days": 0,
+                "cast-sphere-count": roteLevels,
+                "magic-cast-difficulty-modifier": 1
+            });
+
+            const fromCombatTab = parseInt(values["show-rotes-clicked"]);
+            if(fromCombatTab == 1){
+                setAttrs({
+                    "show-rotes-clicked": 0,
+                    "sheetTab": "combat",
+                    "sheetMagicTab": "magic-grid"
+                })
+            }
+        })
+    });
+
+    // If show rotes is clicked form the combat tab
+    // switch to magic tab - rotes view
+    // The rotes clicked flag tells the fill
+    // button to switch to combat tab once it is clicked
+    on("clicked:show-rotes", function(info) {
+        setAttrs({
+            "show-rotes-clicked": 1,
+            "sheetTab": "magic",
+            "sheetMagicTab": "magic-rotes-grid"
+        })
+    });
+
+    on("change:repeating_armors:armor-penalty", function(info) {
+        sumPen("total-armor-pen", "armors", ["armor-penalty", "armor-requirement"]);
+    });
+
+    on("change:repeating_armors:armor-requirement", function(info) {
+        sumPen("total-armor-pen", "armors", ["armor-penalty", "armor-requirement"]);
+    });
+
+    on("change:endurance-grade", function(info) {   
+        sumPen("total-armor-pen", "armors", ["armor-penalty", "armor-requirement"]);
+    });
+
+    on("change:repeating_armors:armor-defense", function(info) {
+        repeatingSum("total-armor-defense", "armors", ["armor-defense"]);
+    });
+
+    on("change:apply-armor", function(info) {
+        getAttrs(["apply-armor"], function(values) {
+            var applyArmor = values["apply-armor"];
+            if(applyArmor == "0"){
+                setAttrs({"enemy-pen": 0});
+            }
+        });
+    });
+
+    // Helper function that calculates the total armor pen and updates true agility
+    // Don't touch. It just works.
+    const sumPen = (destinations, section, fields) => {
+        if (!Array.isArray(destinations)) destinations = [destinations.replace(/\s/g, '').split(',')];
+        if (!Array.isArray(fields)) fields = [fields.replace(/\s/g, '').split(',')];
+        getSectionIDs(`repeating_${section}`, idArray => {
+            const attrArray = idArray.reduce((m, id) => [...m, ...(fields.map(field => `repeating_${section}_${id}_${field}`))], []);
+            getAttrs([...attrArray, "endurance-grade"], v => {
+                const getValue = (section, id, field) => v[`repeating_${section}_${id}_${field}`] === 'on' ? 1 : parseFloat(v[`repeating_${section}_${id}_${field}`]) || 0;
+                const commonMultipliers = (fields.length <= destinations.length) ? [] : fields.splice(destinations.length, fields.length - destinations.length);
+                const output = {};
+                destinations.forEach((destination, index) => {
+                    const enduranceGrade = parseInt(v["endurance-grade"]);
+                    output[destination] = idArray.reduce((total, id) => total + getValue(section, id, fields[index]) + commonMultipliers.reduce((subtotal, mult) => ((getValue(section, id, "armor-requirement") - enduranceGrade) < 0 ? 0 : getValue(section, id, "armor-requirement")-enduranceGrade), 1), 0);
+                });
+                setAttrs(output);
+                computeTrueAgility();
+            }); 
+        }); 
+    };
+
+    // Helper function that summs up all values from 1 field in repeatable section
+    const repeatingSum = (destinations, section, fields) => {
+        if (!Array.isArray(destinations)) destinations = [destinations.replace(/\s/g, '').split(',')];
+        if (!Array.isArray(fields)) fields = [fields.replace(/\s/g, '').split(',')];
+        getSectionIDs(`repeating_${section}`, idArray => {
+            const attrArray = idArray.reduce((m, id) => [...m, ...(fields.map(field => `repeating_${section}_${id}_${field}`))], []);
+            getAttrs([...attrArray], v => {
+                const getValue = (section, id, field) => v[`repeating_${section}_${id}_${field}`] === 'on' ? 1 : parseFloat(v[`repeating_${section}_${id}_${field}`]) || 0;
+                const commonMultipliers = (fields.length <= destinations.length) ? [] : fields.splice(destinations.length, fields.length - destinations.length);
+                const output = {};
+                destinations.forEach((destination, index) => {
+                    output[destination] = idArray.reduce((total, id) => total + getValue(section, id, fields[index]) * commonMultipliers.reduce((subtotal, mult) => subtotal * getValue(section, id, mult), 1), 0);
+                });
+                setAttrs(output);
+            }); 
+        }); 
+    };
+
+    on("clicked:defend", (info) => {
+        getAttrs(["combat-defense-skill", "apply-armor", "is-sneak-attack", "total-armor-defense", "enemy-pen"], function(values) {
+            var defenseSkill = values["combat-defense-skill"];
+            var applyArmor = values["apply-armor"];
+            var sneakAttack = values["is-sneak-attack"];
+            var armor = parseInt(values["total-armor-defense"]);
+            var enemyPen = parseInt(values["enemy-pen"]);
+            var skillName = defenseSkill.replace("true-", ""); //for focuses we only want normal agility name
+            var dicePool = 0;
+
+            var rollFormula = `&{template:redrains-defense} {{name=Defense - ${skillName}}} {{defense=[[(?{Defense dice modifier|0}+@skill+@armor)d6>4 @focus]]}} `
+
+            getAttrs([`${skillName}-focuses`, `${defenseSkill}-grade`, "strain"], function(focusValue) {
+                var skillFocus = focusValue[`${skillName}-focuses`];
+                var skillGrade = parseInt(focusValue[`${defenseSkill}-grade`]);
+                var strain = parseInt(focusValue["strain"]);
+
+                if(skillFocus.length != 0){
+                    rollFormula = rollFormula.replace("@focus",`+?{Does your ${skillName} focus "${skillFocus}" apply?|No, 0|Yes - once, 1|Yes - twice, 2}`);
+                } else {
+                    rollFormula = rollFormula.replace("@focus", "");
+                }
+
+                //Calculate armor pool (armor - pen, min value 0) before sneak attack
+                armor = armor - enemyPen;
+                if(armor < 0){
+                    armor = 0;
+                }
+
+                if(sneakAttack == "on"){
+                    rollFormula = rollFormula.replace("@skill", "0");
+                    armor = Math.floor(armor / 2);
+                } else {
+                    rollFormula = rollFormula.replace("@skill", `${skillGrade}-${strain}`);
+                    dicePool = dicePool + skillGrade - strain;
+                }
+
+                if(applyArmor == "on"){
+                    rollFormula = rollFormula.replace("@armor", armor);
+                    dicePool = dicePool + armor;
+                } else {
+                    rollFormula = rollFormula.replace("@armor", "0");
+                }
+
+                console.log(rollFormula);
+
+                startRoll(rollFormula, (results) => {
+                    var sucesses = results.results.defense.result
+                    var skillUserInput = results.results.defense.expression.replace(/\D+/g, ' ').trim().split(' ').map(e => parseInt(e))[0]; //Get the user input - second dice in dice expression
+                    // If user has more sucesses than his maximum dice pool allows, then the number of sucessed becomes equal to dice pool
+                    dicePool = dicePool + skillUserInput
+                    if (sucesses > dicePool){
+                        sucesses = dicePool;
+                    }
+                    finishRoll(
+                        results.rollId, {
+                            defense: sucesses
+                        }
+                    );
+                })
+            });
+        });
+
+        setAttrs({"enemy-pen": 0});
+    });
+
+    on("clicked:repeating_weapons:weapon-attack", function(info) {
+        getAttrs(["repeating_weapons_weapon-attack", "repeating_weapons_weapon-penetration", "repeating_weapons_weapon-requirement", "repeating_weapons_weapon_skill", "repeating_weapons_weapon-name"], function(values) {
+            attackBonus = parseInt(values["repeating_weapons_weapon-attack"]);
+            attackPenetration = parseInt(values["repeating_weapons_weapon-penetration"]);
+            attackRequirement = parseInt(values["repeating_weapons_weapon-requirement"]);
+            attackSkill = values["repeating_weapons_weapon_skill"];
+            weaponName = values["repeating_weapons_weapon-name"];
+
+            getAttrs([`${attackSkill}-grade`, `${attackSkill}-focuses`, "strain"], function(skillValue) {
+                var skillGrade = parseInt(skillValue[`${attackSkill}-grade`]);
+                var skillFocus = skillValue[`${attackSkill}-focuses`];
+                var strain = parseInt(skillValue["strain"]);
+
+                var attackPenalty = attackRequirement - skillGrade;
+                if(attackPenalty < 0){
+                    attackPenalty = 0;
+                }
+
+                var rollFormula = `&{template:redrains-attack} {{weaponName=${weaponName}}} {{attack=[[(${skillGrade}+?{${attackSkill} dice modifier|0}+${attackBonus}-${strain}-${attackPenalty})d6>4@focus]]}} {{weaponPen=[[0d0]]}}`;
+
+                if(skillFocus.length != 0){
+                    rollFormula = rollFormula.replace("@focus",`+?{Does your ${attackSkill} focus "${skillFocus}" apply?|No, 0|Yes - once, 1|Yes - twice, 2}`)
+                } else {
+                    rollFormula = rollFormula.replace("@focus", "");
+                }
+                
+                startRoll(rollFormula, (results) => {
+                    var sucesses = results.results.attack.result
+                    var skillUserInput = results.results.attack.expression.replace(/\D+/g, ' ').trim().split(' ').map(e => parseInt(e))[1]; //Get the user input - second dice in dice expression
+                    // If user has more sucesses than his maximum dice pool allows, then the number of sucessed becomes equal to dice pool
+                    const dicePool = skillGrade + skillUserInput - strain - attackPenalty + attackBonus
+                    if (sucesses > dicePool){
+                        sucesses = dicePool;
+                    }
+                    finishRoll(
+                        results.rollId, {
+                            attack: sucesses,
+                            weaponPen: attackPenetration
+                        }
+                    );
+                })
+            })
+        });
+    });
 
 </script>

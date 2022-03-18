@@ -1,22 +1,189 @@
 @import url('https://fonts.googleapis.com/css?family=Kings&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Grenze+Gotisch&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates:wght@400;700&display=swap');
 
-/* Main body design */
-.charsheet main{
-    display: grid;
-    grid-template-rows: 130px 30px 1fr 1fr;
-    grid-template-columns: 300px 1fr;
-    min-width: 800px;
-    height: 1080px;
-    max-width: 1000px;
-    border: 1px solid red;
-    border-radius: 20px;
-}
+/* Main body design and global settings*/
+    .charsheet main{
+        display: grid;
+        grid-template-rows: 130px 30px 1fr 1fr;
+        grid-template-columns: 300px 1fr;
+        min-width: 810px;
+        height: 1080px;
+        max-width: 1000px;
+        border: 2px solid black;
+        border-radius: 20px;
+        background-image: url(https://i.imgur.com/JuMb4cF.jpg);
+        background-repeat: no-repeat;
+        background-size: 2000px 1100px;
+        font-family: Montserrat Alternates;
+        font-size: 15px;
+        scrollbar-color: rgb(238, 238, 238) #fff;
+        scrollbar-width: thin;
+    }
 
-.charsheet .character-header{
-    grid-row: 1 / 2;
-    grid-column: 2 / 4;
-    border: 1px solid purple;
-}
+    .charsheet .character-header{
+        grid-row: 1 / 2;
+        grid-column: 2 / 4;
+    }
+
+    .charsheet input[type=checkbox] {
+        -webkit-apperance: none;
+        appearance: none;
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: 25px;
+        width: 25px;
+        display: inline-block;
+        padding: 0;
+        border:0px solid;
+    }
+
+    .charsheet input[type="checkbox"]:focus{/*Removes the thick border that appears after clicking on a checkbox*/
+        outline:0px solid;
+        outline-offset:0;
+    } 
+      
+    /* Alter unchecked and check checkbox appearance*/
+    .charsheet input[type=checkbox]:not(:checked){
+        background-image: url(https://i.imgur.com/4dABtF3.png);
+    }
+      
+    .charsheet input[type=checkbox]:checked{
+        background-image: url(https://i.imgur.com/PK9Yj1i.png);
+    }
+
+    .charsheet .repcontainer{
+        background-color: rgba(252, 252, 252, .9);
+    }
+    .charsheet .sheet-page div{
+        background-color: rgba(255, 255, 255, .5);
+    }
+
+    .charsheet *::selection{
+        background-color: rgb(200, 2, 3);
+        text-shadow: 0px 0px 5px rgb(255, 255, 255), 0px 0px 10px rgb(129, 69, 0);
+        color: rgb(255, 255, 255);
+    }
+
+    .charsheet input[type=number],
+    .charsheet input[type=text],
+    .charsheet textarea,
+    .charsheet select{
+        border: 1px solid rgba(66, 18, 18, 0.3);
+        color: rgb(25, 0, 0);
+    }
+
+    .charsheet input[type=number]:focus,
+    .charsheet input[type=text]:focus,
+    .charsheet textarea:focus,
+    .charsheet select:focus{
+        /* outline: 2px solid rgb(238, 2, 3); */
+        outline: 2px solid rgb(150, 20, 20);
+        background: rgb(255, 253, 253);
+        
+    }
+
+    /* Common font for headers */
+    .charsheet h4, .charsheet h3{
+        font-family: Grenze Gotisch;
+    }
+
+    /* Common settings for H3 headers */
+    .charsheet h3{
+        font-size: 25px;
+    }
+
+    /* Common settings for H4 headers */
+    .charsheet h4{
+        font-size: 19px;
+    }
+
+    /* Common color for tab buttons and H3 headers */
+    .charsheet h3, .charsheet h1,  .charsheet h2,
+    .charsheet .tab-button span{
+        color: rgb(150, 20, 20);
+    }
+
+    .charsheet .repcontrol{
+        overflow: hidden;
+    }
+
+    /* Main in-character sheet button design */
+    .charsheet .sheet-button,
+    .charsheet .repcontrol button, .charsheet .itemcontrol button, .charsheet .itemcontrol a,
+    .charsheet .magic-grid-section-header-buttons button{
+        background-color: #fbeee0;
+        background-image: linear-gradient(rgb(255, 253, 253), rgb(255, 250, 250));
+        font-family: Grenze Gotisch;
+        border: 1px solid black;
+        border-radius: 5px;
+        font-size: 20px;
+        box-shadow: rgb(50, 0, 0) 1px 1px 0 0;
+        color: rgb(50, 0, 0);
+        cursor: pointer;
+        display: inline-block;
+        font-weight: bold;
+        padding: 0 5px;
+        margin: 2px;
+        text-align: center;
+        text-decoration: none;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+    }
+
+    .charsheet .itemcontrol button,
+    .charsheet .itemcontrol a{
+        font-family: Pictos;
+        height: 35px;
+        width: 35px;
+        min-height: 35px;
+        min-width: 35px;
+        max-height: 35px;
+        max-width: 35px;
+        padding: 0;
+        opacity: 85%;
+    }
+
+    .charsheet .itemcontrol a{
+        height: 17px;
+        width: 35px;
+        max-height: 17px;
+        max-width: 35px;
+        min-height: 17px;
+        min-width: 35px;
+        padding: 8px 0 8px;
+        font-size: 30px;
+    }
+
+    .charsheet .sheet-button>*,
+    .charsheet .repcontrol button>*{
+        margin: auto;
+    }
+
+    .charsheet .sheet-button:hover,
+    .charsheet .itemcontrol button:hover, .charsheet .itemcontrol a:hover,
+    .charsheet .repcontrol button:hover,
+    .charsheet .skill-roll-button:hover{
+        background-color: #fff;
+        background-image: linear-gradient(#fff, rgb(255, 240, 240));
+        background-position: 0;
+        transition-duration: 0s;
+    }
+
+    .charsheet .sheet-button:active,
+    .charsheet .repcontrol button:active,
+    .charsheet .itemcontrol button:active, .charsheet .itemcontrol a:active,
+    .charsheet .skill-roll-button:active{
+        box-shadow: none;
+        transform: translate(2px, 2px);
+        color: rgb(50, 0, 0);
+    }
+
+    .charsheet .skill-roll-button:active{
+        box-shadow: none;
+    }
+
 /*
  * TAB NAVIGATION BAR SECTION
  */
@@ -24,39 +191,49 @@
     .charsheet .tab-bar{
         grid-row: 2 / 3;
         grid-column: 2 / 3;
+        border-bottom: 2px solid black;
     }
 
     /* Tab button design */
     .charsheet .tab-button {
         display: inline-block;
-        width: 70px; 
-        height: 30px; 
+        width: 85px; 
+        height: 55px; 
         text-align: center;
-        border: gray;
-        background-color: #E8562A;
-        color: #fff;
+        background: none;
+        border: none;
+        background-repeat: no-repeat;
+        background-size:contain;
+        background-image: url(https://i.imgur.com/FYBjwQ3.png);
+        margin-top: -10px;
+
+    }
+
+    /* Tab button text design */
+    .charsheet .tab-button span {
+        margin: auto auto 13px auto;
+        padding: auto;
         font-weight: bold;
-        margin: -2px;
-        Padding: 0;
+        display:inline-flex;
+        text-align: center;
+        font-size: 20px;
+        font-family: Grenze Gotisch;
     }
 
+    /* Main Red Rains title box */
     .charsheet .title{
-        grid-row: 1 / 1;
-        grid-column: 1 / 1;
-        border: 1px solid black;
+        grid-row: 1;
+        grid-column: 1;
+        border-right: 2px solid black;
+        border-bottom: 2px solid black;
     }
 
+    /* Main Red Rains title */
     .charsheet .title h1{
         font-family: Kings;
         font-size: 60px;
-        padding-top: 20px;
-        padding-bottom: 20px;
         text-align: center;
-        vertical-align: middle;
-    }
-
-    .charsheet main > div{
-        border: 1px solid black;
+        padding-top: 17%;
     }
 
     /*Configure all sheets*/
@@ -64,7 +241,6 @@
         display: none;
         grid-row: 3 / 6;
         grid-column: 2 / 3;
-        border: 1px solid black;
         padding: 10px
     }
 
@@ -95,12 +271,40 @@
         display: block;
     }
 
-    .charsheet .sheet-tabstoggle[value="skills"] ~ button.sheet-skills,
-    .charsheet .sheet-tabstoggle[value="magic"] ~ div.sheet-magic,
-    .charsheet .sheet-tabstoggle[value="combat"] ~ div.sheet-combat,
-    .charsheet .sheet-tabstoggle[value="inventory"] ~ div.sheet-inventory,
-    .charsheet .sheet-tabstoggle[value="notes"] ~ div.sheet-notes{
+    /* edit button of the selected tab */
+    .charsheet .sheet-tabstoggle[value="skills"] ~ div button[name="act_skills"] span,
+    .charsheet .sheet-tabstoggle[value="magic"] ~ div button[name="act_magic"] span,
+    .charsheet .sheet-tabstoggle[value="combat"] ~ div button[name="act_combat"] span,
+    .charsheet .sheet-tabstoggle[value="inventory"] ~ div button[name="act_inventory"] span,
+    .charsheet .sheet-tabstoggle[value="notes"] ~ div button[name="act_notes"] span,
+    .charsheet .sheet-tabstoggle[value="fire-sphere-info"] ~ div button[name="act_magic"] span,
+    .charsheet .sheet-tabstoggle[value="earth-sphere-info"] ~ div button[name="act_magic"] span,
+    .charsheet .sheet-tabstoggle[value="air-sphere-info"] ~ div button[name="act_magic"] span,
+    .charsheet .sheet-tabstoggle[value="water-sphere-info"] ~ div button[name="act_magic"] span,
+    .charsheet .sheet-tabstoggle[value="darkness-sphere-info"] ~ div button[name="act_magic"] span,
+    .charsheet .sheet-tabstoggle[value="light-sphere-info"] ~ div button[name="act_magic"] span,
+    .charsheet .sheet-tabstoggle[value="force-sphere-info"] ~ div button[name="act_magic"] span,
+    .charsheet .sheet-tabstoggle[value="cold-sphere-info"] ~ div button[name="act_magic"] span,
+    .charsheet .sheet-tabstoggle[value="healing-sphere-info"] ~ div button[name="act_magic"] span,
+    .charsheet .sheet-tabstoggle[value="decay-sphere-info"] ~ div button[name="act_magic"] span,
+    .charsheet .sheet-tabstoggle[value="metamorphosis-sphere-info"] ~ div button[name="act_magic"] span,
+    .charsheet .sheet-tabstoggle[value="flora-sphere-info"] ~ div button[name="act_magic"] span,
+    .charsheet .sheet-tabstoggle[value="duration-sphere-info"] ~ div button[name="act_magic"] span,
+    .charsheet .sheet-tabstoggle[value="expansion-sphere-info"] ~ div button[name="act_magic"] span,
+    .charsheet .sheet-tabstoggle[value="projection-sphere-info"] ~ div button[name="act_magic"] span,
+    .charsheet .sheet-tabstoggle[value="mind-sphere-info"] ~ div button[name="act_magic"] span,
+    .charsheet .sheet-tabstoggle[value="summoning-sphere-info"] ~ div button[name="act_magic"] span,
+    .charsheet .sheet-magicTabstoggle[value="magic-rotes-grid"] ~ div button[name="act_magic-rotes-grid"] span,
+    .charsheet .sheet-magicTabstoggle[value="magic-grid"] ~  div button[name="act_magic-grid"] span{
+        background-image: url(https://i.imgur.com/Cft5JcO.png);
+        text-shadow: 0px 0px 5px rgb(255, 255, 255), 0px 0px 10px rgb(129, 0, 0);
+        color:rgb(238, 2, 3);
+        letter-spacing: 0.07em;
+    }
 
+    /* Smaller spacing for inventory because that word is already long enough */
+    .charsheet .sheet-tabstoggle[value="inventory"] ~ div button[name="act_inventory"] span{
+        letter-spacing: 0.03em;
     }
 
 /*
@@ -113,34 +317,112 @@
 
     .charsheet .skills-grid{
         display: grid;
-        grid-auto-rows: 30px;
+        grid-auto-rows: auto;
         grid-template-columns: 40px 100px 70px 90px 1fr;
         vertical-align: middle;
+    }
+
+    /* skill names */
+    .charsheet .skills-grid div{
+        margin: 2px 0;
+        background-color: #fbfbfb;
     }
 
     .charsheet .skills-grid-header{
         grid-column: 1 / 6;
         text-align: center;
         vertical-align: middle;
+        padding-top: 4px;
+        padding-bottom: 2px;
+    }
+    /* Additional settings for the first group of skills */
+    .charsheet .first-skills-grid-header{
+        padding: 0;
+        margin-top: -5px !important;
     }
 
     .charsheet .skills-grid>*{
         margin-bottom: 2px;
     }
 
+    /* Headers with column names */
     .charsheet .skills-grid h4{
-        margin: 5px;
+        margin: 0 auto;
+        padding: 0;
+        padding-bottom: 2px;
+    }
+
+    /* ^^^ Name header should be the only one starting from the left*/
+    .charsheet #skills-grid-header-Name{
+        margin: 0;
     }
 
     .charsheet .skills-grid-input{
         width: 100%;
+        margin: auto;
     }
 
-    .skill-roll-button{
+    /*.skill-roll-button{
         text-align: center;
         vertical-align: middle;
         margin-right: 5px;
+    }*/
+
+    .charsheet .skill-roll-button{
+        display: flex;
+        float: right;
+        width: 25px;
+        height: 25px;
+        border: 1px solid rgb(129, 0, 0);
+        box-shadow: rgb(110, 0, 0) 1px 1px 0 0;
+        border-radius: 25px;
+        background: #f3eaea;
+        background-image: linear-gradient(rgb(253, 245, 245), #fff1f1);
+        margin: 0;
+        padding: 0 2px;
+        transform: rotate(-5deg);
+        margin-bottom: 3px;
     }
+
+    .charsheet .skill-roll-button img{
+        width: 80%;
+        height: 80%;
+        margin: auto;
+        padding: 0;
+        padding-left: 1px;
+        
+    }
+
+        /* info button for each sphere 
+        .charsheet .magic-grid-item button{
+            display: block;
+            height: 15px;
+            width: 15px;
+            margin: 0;
+            padding: 0;
+            margin-left: auto;
+            margin-top: -10px;
+            background-image: url(https://i.imgur.com/GGez8sR.png);
+            background-repeat: no-repeat;
+            background-size: fill;
+        }
+        
+            .charsheet .sheet-page button[name="act_magic-back"]{
+        display: flex;
+        float: right;
+        width: 50px;
+        height: 50px;
+        border: none;
+        border-radius: 50px;
+        background: none;
+    }
+
+    .charsheet .sheet-page button[name="act_magic-back"] img{
+        width: 100%;
+        height: 100%;
+    }
+        
+        */
 
 /*
  * SKILLS TAB SECTION END
@@ -159,7 +441,9 @@
     .charsheet .magic-grid-section{
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
-        border: 1px solid black;
+        grid-auto-rows: auto;
+
+        outline: 1px solid black;
     }
 
     /* Esoteric section has 5 spheres instead of 4 / 8 */
@@ -171,15 +455,33 @@
     .charsheet .magic-grid-section-header{
         display: grid;
         text-align: center;
-        grid-columns: 1/5;
         text-align: left;
-        border: 1px solid red;
+        border: 2px solid rgb(150, 20, 20);
+        outline: 1px solid black;
+        grid-template-columns: 1fr 1fr;
     }
+
+    /* The very first header with  2 buttons, rotes and spheres */
+    .charsheet .magic-grid-section-header-buttons{
+        border: none;
+        outline: none;
+    }
+
+    .charsheet .magic-grid-section-header-buttons button{
+        margin: 5px;
+        padding: 0;
+    }
+
 
     /* Header text for each magic section */
     .charsheet .magic-grid-section-header h3{
-        text-align: center;
-        color: red;
+        margin: auto;
+        grid-column: 1 / 3;
+    }
+
+    /* Show rotes button */
+    .charsheet .magic-grid-section-header button{
+        height: 35px;
     }
 
     /* Each individual sphere container in the header section */
@@ -187,12 +489,13 @@
         display: grid;
         text-align: center;
         grid-template-columns: 1fr;
-        grid-template-rows: 15px 45px 35px 40px;
+        grid-template-rows: 15px 48px 35px 40px;
         border: 1px solid black;
         padding: 10px 0;
+        background: radial-gradient(50% 25%, rgb(255, 200, 200), #fff,#fff, #fff);
     }
 
-    /* Each individual sphere container in the header section */
+    /* info button for each sphere */
     .charsheet .magic-grid-item button{
         display: block;
         height: 15px;
@@ -200,12 +503,22 @@
         margin: 0;
         padding: 0;
         margin-left: auto;
-        margin-top: -10px;
+        margin-top: -13px;
+        border: none;
+        background: none;
+    }
+
+    .charsheet .magic-grid-item button img{
+        height: 15px;
+        width: 15px;
+        margin: auto;
+        opacity: 0.5;
     }
 
     .charsheet .magic-grid-item h4{
         text-align: center;
         vertical-align: middle;
+        margin-top: 10px;   
     }
 
     .charsheet .magic-grid-item input[type="text"]{
@@ -216,19 +529,24 @@
         margin: 0 auto;
     }
 
+    /* Sphere imagei n the sphere grid */
     .charsheet .magic-grid-item img{
-        width: 50px;
-        height: 50px;
+        width: 75px;
+        height: 75px;
         margin: 0 auto;
-        margin-top: -15px;
+        margin-top: -20px;
     }
 
     /* Cast a spell wrapper */
     .charsheet .magic-cast{
         display: grid;
-        grid-template-columns: auto auto auto 1fr;
-        grid-template-rows: 1;
-        margin: 10px 0px;
+        grid-template-columns: auto auto 1fr;
+        grid-template-rows: 30px 30px 30px;
+        margin: 10px auto;
+        padding: 5px;
+        width: 465px;
+        border: 2px solid rgb(150, 20, 20);
+        border-radius: 10px;
     }
 
     /* Cast a spell title*/
@@ -238,12 +556,127 @@
         margin-bottom: auto;
     }
 
+    /* Cast a spell title - levels used*/
+    .charsheet .magic-cast h4[name="levels"]{
+        grid-row: 1;
+        grid-column: 1;
+    }
+
+    /* Cast a spell title - levels used*/
+    .charsheet .magic-cast h4[name="levels"]{
+        grid-row: 1;
+        grid-column: 1;
+    }
+
+    /* Cast a spell title - levels used*/
+    .charsheet .magic-cast h4[name="ritual"]{
+        grid-row: 2;
+        grid-column: 1;
+    }
+
     /* Cast a spell input*/
     .charsheet .magic-cast input{
         margin-right: 10px;
         width: 50px !important;
+        grid-row: 1;
+        grid-column: 2;
     }
 
+    /* Cast a spell button */
+    .charsheet .magic-cast button{
+        grid-row: 3;
+        grid-column: 1 / 4;
+        border-radius: 5px;
+    }
+
+    .charsheet .magic-cast select
+    {
+        width: 100px;
+        grid-row: 2;
+        grid-column: 2;
+        margin-right: 10px;
+    }
+
+    .charsheet .magic-cast-ritual-days{
+        display: none;
+    }
+
+    .charsheet .magic-ritual-length[value="3.6"] ~ span.magic-cast-ritual-days
+    {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: 1;
+        grid-row: 2;
+        grid-column: 3;
+    }
+
+    .charsheet .magic-cast-difficulty-mod{
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: 1;
+    }
+
+    /**** Magic tabs ****/
+    .charsheet .magic-rotes-grid,
+    .charsheet .magic-grid{
+        display: none;
+    }
+
+    /* show the selected magic tab */
+    .charsheet .sheet-magicTabstoggle[value="magic-rotes-grid"] ~ .magic-rotes-grid,
+    .charsheet .sheet-magicTabstoggle[value="magic-grid"] ~ .magic-grid
+    {
+        display: grid;
+    }
+
+    .charsheet .magic-rotes-grid{
+        max-height: 720px;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .repcontainer[data-groupname="repeating_rotes"] .rote{
+        border: 1px solid black;
+        border-radius: 5px;
+        display: grid;
+        grid-template-columns: 3fr auto 1fr; 
+        padding: 5px;
+    }
+
+    .charsheet .rotes-header{
+        display: grid;
+        grid-template-columns: 3fr auto 1fr;
+    }
+
+    .charsheet #rotes-header-levels{
+        margin-left: -30px;
+    }
+
+    .repcontainer[data-groupname="repeating_rotes"] input[type="text"]{
+        width: 100%;
+    }
+
+    .repcontainer[data-groupname="repeating_rotes"] input[type="number"]{
+        margin: 0px 10px;
+    }
+
+    .repcontainer[data-groupname="repeating_rotes"] .rote button[name="act_fill-rote"] span{
+        margin: auto
+    }
+
+    .repcontainer[data-groupname="repeating_rotes"] .rote:hover button[name="act_fill-rote"]{
+        display:grid;
+        grid-row: 1 / 3;
+        grid-column: 3;
+        z-index: 1;
+    }
+
+    .charsheet .rote:hover > .rote_desc{
+        display: grid;
+        grid-column: 1 / 5;
+        padding: 0px 10px 10px 10px;
+        width: 76.7%;
+    }
 /*
  * MAGIC TAB SECTION END
  */
@@ -255,6 +688,7 @@
         display: grid;
         grid-template-rows: 40px 40px 40px;
         grid-template-columns: 1fr 1fr;
+        border-bottom: 2px solid black;
     }
 
     /* Overview item subgrid settings */
@@ -269,6 +703,12 @@
     .charsheet .character-info-item[id="wealth"]{
         grid-template-columns: auto auto 1fr;
     }
+
+    /* Overview item subgrid settings for whealth (has one more column in it */
+    .charsheet .character-info-item[id="enl"]{
+        grid-template-columns: auto auto auto auto;
+    }
+    
 
     /* Whealth description hidden input*/
     .charsheet .character-info-item[id="wealth"] input{
@@ -294,6 +734,7 @@
     }
 
     .charsheet .character-info input[name="attr_enl"],
+    .charsheet .character-info input[name="attr_enl-max"],
     .charsheet .character-info select[name="attr_wealth"]{
         -webkit-appearance: none;
         -moz-appearance: textfield;
@@ -311,7 +752,7 @@
     .charsheet .sidebar{
         grid-row: 2 / 5;
         grid-column: 1;
-        border: 1px solid gold; 
+        border-right: 2px solid black; 
         display:grid;
         grid-template-columns: 1fr;
         grid-template-rows: auto auto auto 1fr;
@@ -322,7 +763,7 @@
         display: grid;
         grid-auto-rows: 35px;
         grid-template-columns: 1fr 1fr;
-        border: 1px solid greenyellow;
+        border-bottom: 2px solid black;
     }
 
     /* Overview item subgrid settings */
@@ -343,30 +784,52 @@
         width: 90%;
     }
 
+    /* Input picture settings */
+    .charsheet .character-overview-item span{
+        grid-column: 2;
+        grid-row: 1;
+    }
+
     /* Character name input settings */
     .charsheet .character-name{
-        grid-column: 2 / 5;
         width: 100px;
     }
 
-    .charsheet .character-abilities{
-        grid-row: 1;
+    /* container for the repeating languages section */
+    .charsheet .languages-container{
+        padding: 5px;
     }
 
     /* Languages repeating section row*/
     .charsheet .language{
         display: grid;
         grid-template-columns: 3fr 35px 35px;
-        margin: 5px;
         text-align: center;
     }
 
-    /* container for the repeating abilities sectioin */
+    /* Languages header*/
+    .charsheet .language{
+        padding: 3px 0;
+    }
+
+    .charsheet #Language-Name-Header{
+        text-align: left;
+    }
+
+    /* Languages repeating section row*/
+    .charsheet .language input[type="checkbox"]{
+        width: 35px;
+        height: 35px;
+        background-size: 90%;
+    }
+
+    /* container for the repeating abilities section */
     .charsheet .abilities-container{
         overflow-y: auto;
         overflow-x: hidden;
         grid-row: 4;
         margin: 10px 0px;
+        padding: 5px;
     }
 
     .charsheet .abilities-container:first-child{
@@ -388,18 +851,38 @@
     }
 
     /* abilities repeating section input*/
-    .charsheet .ability .ability_desc{
+    .charsheet .ability .ability_desc,
+    .charsheet .item .item_desc,
+    .charsheet .scar-mutation .scar-mutation-desc,
+    .charsheet .rote .rote_desc{
         grid-row: 2;
         display: none;
     }
 
     /* Show ability description on hover*/
-    .charsheet .ability:hover > .ability_desc{
+    .charsheet .ability:hover > .ability_desc, 
+    .charsheet .item:hover > .item_desc,
+    .charsheet .rote:hover > .rote_desc,
+    .charsheet .scar-mutation:hover > .scar-mutation-desc{
         display: grid;
     }
 
+    /* Bigger border on hover */
+    .charsheet .ability:hover,
+    .charsheet .item:hover,
+    .charsheet .scar-mutation:hover,
+    .charsheet .rote:hover{
+        border: 1px solid rgb(129, 0, 0);
+        outline: 1px solid rgb(129, 0, 0);
+        border-radius: 5px;
+    }
+
     /* Alters the appearance of the title of the ability details*/
-    .repcontainer[data-groupname="repeating_abilities"] summary {
+    .repcontainer[data-groupname="repeating_abilities"] summary,
+    .repcontainer[data-groupname="repeating_inventory"] summary,
+    .repcontainer[data-groupname="repeating_scars-mutations"] summary,
+    .repcontainer[data-groupname="repeating_rotes"] summary
+    {
         outline: none;
         display: block;
         padding-top: 5px;
@@ -409,33 +892,51 @@
     }
 
     /* Alters the appearance of the ability details*/
-    .repcontainer[data-groupname="repeating_abilities"] details {
+    .repcontainer[data-groupname="repeating_abilities"] details,
+    .repcontainer[data-groupname="repeating_inventory"] details,
+    .repcontainer[data-groupname="repeating_scars-mutations"] details,
+    .repcontainer[data-groupname="repeating_rotes"] details {
         box-sizing: border-box;
         display:grid;
         margin-right: 10px;
     }
 
-    .repcontainer[data-groupname="repeating_abilities"] details summary::-webkit-details-marker {
+    .repcontainer[data-groupname="repeating_abilities"] details summary::-webkit-details-marker,
+    .repcontainer[data-groupname="repeating_inventory"] details summary::-webkit-details-marker,
+    .repcontainer[data-groupname="repeating_scars-mutations"] details summary::-webkit-details-marker,
+    .repcontainer[data-groupname="repeating_rotes"] details summary::-webkit-details-marker{
         display:none;
     }
 
     /* Animate the arrow before the ability details summary (rotate when opened)*/
-    .repcontainer[data-groupname="repeating_abilities"] details[open] > summary:before {
+    .repcontainer[data-groupname="repeating_abilities"] details[open] > summary:before,
+    .repcontainer[data-groupname="repeating_inventory"] details[open] > summary:before,
+    .repcontainer[data-groupname="repeating_inventory"] details[open] > summary:before,
+    .repcontainer[data-groupname="repeating_rotes"] details[open] > summary:before{
         transform: rotate(90deg);
     }
 
     /* If details are opened display this text*/
-    .repcontainer[data-groupname="repeating_abilities"] details[open] > summary:after {
+    .repcontainer[data-groupname="repeating_abilities"] details[open] > summary:after,
+    .repcontainer[data-groupname="repeating_inventory"] details[open] > summary:after,
+    .repcontainer[data-groupname="repeating_scars-mutations"] > summary:after,
+    .repcontainer[data-groupname="repeating_rotes"] details[open] > summary:after {
         content: 'Hide desctiption';
     }
 
     /* If details are closed display this text*/
-    .repcontainer[data-groupname="repeating_abilities"] details > summary:after {
+    .repcontainer[data-groupname="repeating_abilities"] details > summary:after,
+    .repcontainer[data-groupname="repeating_inventory"] details > summary:after,
+    .repcontainer[data-groupname="repeating_scars-mutations"] details > summary:after,
+    .repcontainer[data-groupname="repeating_rotes"] summary:after{
         content: 'Show description';
     }
 
     /* Animate the arrow before the ability details summary */
-    .repcontainer[data-groupname="repeating_abilities"] summary:before {
+    .repcontainer[data-groupname="repeating_abilities"] summary:before,
+    .repcontainer[data-groupname="repeating_inventory"] summary:before,
+    .repcontainer[data-groupname="repeating_scars-mutations"] summary:before,
+    .repcontainer[data-groupname="repeating_rotes"] summary:before{
         content: '';
         border-width: .4rem;
         border-style: solid;
@@ -449,9 +950,10 @@
     }
     
     /* Style of each individual row of ability*/
-    .repcontainer[data-groupname="repeating_abilities"] .repitem {
+    .repcontainer[data-groupname="repeating_abilities"] .repitem{
         border: 1px solid black;
         border-radius: 5px;
+        margin-bottom: 5px;
     }
 
 /*
@@ -459,7 +961,7 @@
  */
 
 /*
- * MAGIC INGO PAGE SECTION
+ * MAGIC INFO PAGE SECTION
  */
     .charsheet .sheet-page button[name="act_magic-back"]{
         display: flex;
@@ -477,8 +979,282 @@
     }
 
 /*
- * MAGIC INGO PAGE SECTION END
+ * MAGIC INFO PAGE SECTION END
  */
+
+/*
+ * COMBAT PAGE SECTION
+ */
+    .charsheet .sheet-combat{
+        
+    }
+
+    .charsheet .combat-stats-overview{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        border: 1px solid black;
+        margin-bottom: 5px;
+        padding: 5px;
+    }  
+
+    .charsheet .combat-stats-overview .combat-stats-overview-item{
+        display: grid;
+        grid-template-columns: auto 1fr;
+        margin: 0 auto 0 auto;
+    }  
+
+    .charsheet .combat-stats-overview .combat-stats-overview-item h4{
+        margin: auto 10px auto 0;
+    }  
+
+    .charsheet .combat-stats-defenses{
+        display: grid;
+        grid-template-columns: 4fr 2fr 1fr 1fr 2fr;
+        grid-auto-rows: 2;
+        border: 1px solid black;
+        padding: 10px 10px 1px 10px;
+        margin: 0 auto;
+    }
+
+    .charsheet .combat-stats-defenses h4{
+        margin: 0 auto;
+        padding: 0 5px;
+        padding-bottom: 5px;
+    }
+
+    .charsheet .combat-stats-defenses select[name="attr_combat-defense-skill"]{
+        grid-row: 2;
+        grid-column: 1;
+        height: 35px;
+        width: 100%;
+        min-width: 120px;
+    }
+
+    .charsheet .combat-stats-defenses input[type="checkbox"]{
+        width: 35px;
+        height: 35px;
+        margin: 0 auto;
+    }
+
+    .charsheet .combat-stats-defenses input[type="number"]{
+        width: 45px;
+        height: 35px;
+        margin: 0 auto;
+    }
+
+    .charsheet .combat-stats-defenses button{
+        margin: 0 auto;
+        width: 80%;
+        min-width: 42px;
+        height: 29px;
+    }
+
+    .charsheet .combat-equipment-overview{
+        display: grid;
+        grid-template-columns: 1fr 10px 1fr;
+        grid-auto-rows: 25px;
+    }
+
+    .charsheet .combat-equipment-overview .combat-item-stats{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 20px 25px;
+        grid-column: 1 / 3; 
+    }
+
+    .charsheet .combat-equipment-overview .combat-weapon-overview .weapon .combat-item-stats h4,
+    .charsheet .combat-equipment-overview .combat-armor-overview .armor .combat-item-stats h4,
+    .charsheet .combat-equipment-overview .combat-weapon-overview .weapon .combat-item-stats input,
+    .charsheet .combat-equipment-overview .combat-armor-overview .armor .combat-item-stats input{
+        margin: 0 auto;
+    }
+
+    .charsheet .combat-equipment-overview .combat-weapon-overview .weapon,
+    .charsheet .combat-equipment-overview .combat-armor-overview .armor{
+        margin-bottom: 4px;
+        border: 1px solid black;
+        border-radius: 10px;
+        padding: 10px;
+    }
+
+    .charsheet .combat-equipment-overview .combat-weapon-overview,
+    .charsheet .combat-equipment-overview .combat-armor-overview{
+        height: 640px;
+        overflow-y: auto;
+    }
+
+    .charsheet .combat-equipment-overview .combat-item-actions{
+        display: grid;
+        grid-template-columns: 1fr 5px 1fr;
+        margin-top: 3px;
+    }
+
+    .charsheet .combat-equipment-overview input[type="text"]{
+        width: 100%
+    }
+
+    .charsheet .combat-weapon-overview select{
+        width: auto;
+    }
+
+    .charsheet .combat-weapon-overview button,
+    .charsheet .combat-armor-overview button{
+        height: 23px;
+    }
+
+    .charsheet .magic-cast .cast-buttons{
+        grid-row: 3;
+        grid-column: 1 / 4;
+        margin-bottom: 10px;
+    }
+
+    .charsheet .magic-cast .cast-buttons button{
+        width: 45%;
+        height: 20px;
+    }
+
+/*
+ * COMBAT PAGE SECTION END
+ */
+
+ /*
+ * MAGIC INFO SECTION
+ */
+
+ /*
+  * MAGIC INFO SECTION END
+  */
+
+/*
+ * INVENTORY SECTION
+ */
+    .charsheet .item{
+        display: grid;
+        grid-template-columns: 50px 1fr;
+        grid-auto-rows: 2;
+        padding: 5px
+    }
+
+    .charsheet .item .item_desc{
+        grid-column: 1/3;
+        margin: 0 10px 10px 10px;
+    }
+
+    .charsheet .item .item_desc textarea{
+        width: 98%;
+    }
+
+    .charsheet .item input[type="text"]{
+        width: 100%;
+    }
+
+    /* Style of each individual row of item*/
+    .repcontainer[data-groupname="repeating_inventory"] .repitem{
+        border: 1px solid black;
+        border-radius: 5px;
+        margin-bottom: 5px;
+    }
+ /*
+  * INVENTORY SECTION END
+  */
+
+/*
+ * NOTES SECTION
+ */
+    .charsheet .sheet-notes-body{
+        display: grid;
+        grid-template-columns: 1fr 1fr;;
+        grid-template-rows: 1fr 1fr;
+        overflow: hidden;
+        height: 850px;
+    }
+    .charsheet .sheet-notes-marks{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        border: 2px solid black;
+        margin-bottom: 5px;
+        padding: 5px;
+        border-radius: 5px;
+    }  
+
+    .charsheet .sheet-notes-marks-item{
+        display: grid;
+        grid-template-columns: auto 1fr;
+        margin: 0 auto 0 auto;
+        width: 100%;
+    }  
+
+    .charsheet .sheet-notes-marks-item h4{
+        margin: auto 10px auto 0;
+    }  
+
+    .charsheet .sheet-notes-marks-item input{
+        width: 95%;
+    }
+
+    .charsheet .notes-body-scars-mutations{
+        grid-row: 1;
+        grid-column: 1;
+        height: 460px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        padding: 10px;
+        padding-left: 0;
+        margin-bottom: 10px;
+    }
+
+    .charsheet .scar-mutation{
+        border: 1px solid black;
+        border-radius: 5px;
+        margin: 1px;
+        margin-bottom: 5px;
+        padding: 5px
+    }
+
+    .charsheet .scar-mutation input{
+        width: 100%;
+    }
+
+    .charsheet .character-description{
+        grid-row: 1;
+        grid-column: 2;
+        padding: 10px;
+        padding-right: 10px;
+    }
+
+    .charsheet .character-description textarea{
+        width: 99%;
+        height: 90%;
+        border: 1px solid black;
+        border-radius: 5px;
+    }
+
+    .charsheet .character-notes{
+        grid-row: 2;
+        grid-column: 1/3;
+        padding-right: 10px;
+        padding-bottom: 10px;
+    }
+
+    .charsheet .character-notes textarea{
+        width: 99%;
+        height: 90%;
+        border: 1px solid black;
+        border-radius: 5px;
+        margin: 5px;
+    }
+
+/* 
+ * NOTES SECTION END
+ */
+
+  .charsheet .magic-info-levels{    
+      height: 845px;
+      width: 100%;
+      display: block;
+      overflow-x: hidden;
+      overflow-y: auto;
+  }
 
  /* 
   * ROLL TEMPLATES
@@ -489,7 +1265,106 @@
         border: 1px solid black;
     }
 
+    .sheet-rolltemplate-redrains h3{
+        
+    }
+
 /* 
  * ROLL TEMPLATES END
  */
 
+
+ /*
+  * DARK MODE
+  */
+
+.sheet-darkmode .charsheet main > * {
+    border-color: rgb(100, 0, 0);
+}
+
+.sheet-darkmode .charsheet,
+.sheet-darkmode .charsheet main,
+.sheet-darkmode .repitem,
+.sheet-darkmode .repcontainer,
+.sheet-darkmode .charsheet .sheet-page div{
+	color: #eee;
+    background-color: #1f1f1f;
+    background-image: none;
+    border-color: rgb(150, 20, 20);
+}
+
+.sheet-darkmode .charsheet input[type=number],
+.sheet-darkmode .charsheet input[type=text],
+.sheet-darkmode .charsheet textarea,
+.sheet-darkmode .charsheet select{
+	color: rgb(240, 240, 240);
+    background-color: #1f1f1f;
+    background-image: none;
+    border-color: rgb(100, 20, 20);
+}
+
+.sheet-darkmode h1
+.sheet-darkmode h2,
+.sheet-darkmode h3,
+.sheet-darkmode h4{
+	color: #ddd;
+}
+
+.sheet-darkmode .repcontainer{
+    background-color: #101010;
+    border-color: rgb(150, 20, 20);
+}
+
+.sheet-darkmode .repitem div{
+    background-color: #292929;
+
+}
+
+.sheet-darkmode .charsheet .sheet-button,
+.sheet-darkmode .charsheet .repcontrol button, .charsheet .itemcontrol button, .charsheet .itemcontrol a,
+.sheet-darkmode .charsheet .magic-grid-section-header-buttons button{
+    background-color: #1f1f1f;
+    background-image: linear-gradient(#303030, #1f1f1f);
+    border: 1px solid rgb(150, 20, 20);
+    box-shadow: rgb(50, 0, 0) 1px 1px 0 0;
+    color: rgb(150, 20, 20);
+    text-shadow: none;
+}
+
+.sheet-darkmode .charsheet .sheet-button:hover,
+.sheet-darkmode .charsheet .repcontrol button:hover, .charsheet .itemcontrol button:hover, .charsheet .itemcontrol a:hover,
+.sheet-darkmode .charsheet .magic-grid-section-header-buttons button:hover,
+.sheet-darkmode .charsheet .skill-roll-button:hover{
+    background-image: linear-gradient(#404040, #303030);
+    color: rgb(200, 20, 20);
+}
+
+.sheet-darkmode .itemcontrol{
+    background-image: none;
+    background-color: rgba(100, 20, 20, 0.1) !important;
+}
+
+.sheet-darkmode button img{
+    filter: invert(100%);
+    opacity: 100;
+}
+
+.sheet-darkmode .tab-button{
+    background-image: url(https://i.imgur.com/3WTv4rt.png);
+    color: rgb(200, 20, 20);
+}
+
+.sheet-darkmode .charsheet .skill-roll-button{
+    border: 1px solid rgb(129, 0, 0);
+    box-shadow: rgb(110, 0, 0) 1px 1px 0 0;
+    background: #f3eaea;
+    background-image: linear-gradient(#303030, #1f1f1f);
+}
+
+.sheet-darkmode .charsheet input[type=checkbox]:not(:checked){
+    background-image: url(https://i.imgur.com/DofDUYx.png);
+}
+  
+.sheet-darkmode .charsheet input[type=checkbox]:checked{
+    background-image: url(https://i.imgur.com/Xz2Qozi.png);
+}
